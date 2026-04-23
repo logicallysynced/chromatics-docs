@@ -48,7 +48,7 @@ If you're coming from Chromatics 3, the app will feel familiar but everything un
 * A new **Audio Visualizer** base layer.
 * A new **Screen Capture** base layer.
 * **Full localisation** — the app is available in English, French, German, Spanish, Japanese, Korean, and Simplified Chinese.
-* **Settings migration** from Chromatics 3 happens automatically the first time you run Chromatics 4.
+* **Manual import** of your Chromatics 3 layers and palette via the Import buttons on the Mappings and Palette tabs.
 
 ## Device compatibility
 

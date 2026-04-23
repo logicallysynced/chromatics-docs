@@ -149,7 +149,21 @@ You can tell Chromatics to handle that silently from now on via **Settings → A
 
 <summary>Can I import my Chromatics 3 setup?</summary>
 
-Yes. The first time you run Chromatics 4 it looks for your Chromatics 3 config files, imports them, and renames the originals so they are preserved. If you ever want to import an older file by hand, the **Import** buttons in the Mappings and Palette tabs accept both `.chromatics3` and `.chromatics4` files.
+Your layers and colour palette can be brought across manually — Chromatics 4 stores its settings in a new location, so they are **not** carried over automatically.
+
+**To bring your layer mappings across:**
+
+1. Find your old `layers.chromatics3` file. It will be in the folder where Chromatics 3 was installed.
+2. Open Chromatics 4 and go to the **Mappings** tab.
+3. Click **Import** and select your `layers.chromatics3` file.
+
+**To bring your colour palette across:**
+
+1. Find your old `palette.chromatics3` file. It will be in the folder where Chromatics 3 was installed.
+2. Open Chromatics 4 and go to the **Palette** tab.
+3. Click **Import** and select your `palette.chromatics3` file.
+
+Your effects settings and general settings will need to be reconfigured from scratch — the rebuild was significant enough that a fully automatic migration wasn't possible.
 
 </details>
 
