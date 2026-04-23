@@ -16,7 +16,7 @@ Before anything else, make sure you're on the latest version. Open **Settings �
 
 **Check your prerequisites.**
 
-* Make sure the **.NET 10 Desktop Runtime (x64)** and **Visual C++ 2015–2022 Redistributable (x64)** are both installed. See [Prerequisites](../getting-started/prerequisites.md).
+* Make sure the **.NET 10 Desktop Runtime (x64)** and **Visual C++ 2017–2026 Redistributable (x64)** are both installed. See [Prerequisites](../getting-started/prerequisites.md).
 * If you're using the portable ZIP, right-click the downloaded file, open **Properties**, and click **Unblock** before extracting.
 
 **Check the console.** The [Console](../using-chromatics/console.md) tab lists any startup errors first. Read them top-to-bottom — a missing runtime or misbehaving vendor SDK usually announces itself loudly.

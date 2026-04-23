@@ -20,15 +20,8 @@ Before installing Chromatics, please make sure your PC meets the following requi
 Chromatics 4 is built on .NET 10 and uses the latest Microsoft Visual C++ redistributable.
 
 * **[.NET 10 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)**
-* **[Microsoft Visual C++ Redistributable 2015–2022 (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe)**
+* **[Microsoft Visual C++ Redistributable 2017–2026 (x64)](https://aka.ms/vc14/vc_redist.x64.exe)**
 
-{% hint style="success" %}
-**If you use the installer version of Chromatics**, both of these runtimes will be installed for you automatically. You do not need to download them yourself.
-{% endhint %}
-
-{% hint style="warning" %}
-**If you use the portable (ZIP) version**, you need to install both runtimes manually before first launch. Chromatics will warn you on startup if the Visual C++ Redistributable is missing and offer to open the download page for you.
-{% endhint %}
 
 ## Supported devices
 

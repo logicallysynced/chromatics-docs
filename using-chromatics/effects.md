@@ -29,7 +29,7 @@ Some effects paint across the entire device (the **base layer**), some interrupt
 
 When Raid Effects is on and you enter a supported encounter, Chromatics temporarily replaces your base layer with a scripted animation for that encounter. Effects include arena pulses, ripples, colour washes, and rhythmic beat-synced patterns.
 
-Supported encounters include the Dawntrail **Arcadion** raid series (M1–M8), **Cloud of Darkness** sequels, and the **Everkeep** normal and savage fights. Chromatics also reacts to music changes mid-fight — when a phase transition cuts the music, the lighting blacks out briefly to match.
+Supported encounters include the Dawntrail **Arcadion** raid series (M1–M12 & Savage), Dawntrail Trials, and some secret ones. Chromatics also reacts to music changes mid-fight — when a phase transition cuts the music, the lighting blacks out briefly to match.
 
 If you're in an unsupported encounter, your normal base layer plays as usual, so you lose nothing by leaving Raid Effects on.
 

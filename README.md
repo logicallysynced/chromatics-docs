@@ -17,7 +17,7 @@ metaLinks:
 
 Chromatics is a free companion app for **Final Fantasy XIV** that turns your RGB devices into an extension of the game. Your keyboard, mouse, headset, light strips, and smart bulbs can follow what's happening on screen — reacting to your health, your job, the weather around you, and much more.
 
-Chromatics 4 is a complete, modern rebuild of the app. It uses a new UI built on Avalonia, a new rendering pipeline, and a refreshed device layer — so it runs smoothly, looks great, and supports more hardware than ever.
+Chromatics 4 is a complete, modern rebuild of the app. It uses a new UI built on Avalonia, the latest RGB.NET release and a rebuilt backend - so it runs smoothly, looks great, and supports more hardware than ever.
 
 ## What Chromatics can do
 
@@ -44,14 +44,11 @@ If you're coming from Chromatics 3, the app will feel familiar but everything un
 
 * A redesigned interface with light and dark themes.
 * **First-run wizard** that walks you through picking your devices the first time you launch.
-* Support for **OpenRGB** and **Philips Hue (Beta)** alongside the existing vendor integrations.
+* Support for **OpenRGB** and **Philips Hue** alongside the existing vendor integrations.
 * A new **Audio Visualizer** base layer.
-* A new **Screen Capture (Beta)** base layer.
-* **Global Brightness** control across every device.
+* A new **Screen Capture** base layer.
 * **Full localisation** — the app is available in English, French, German, Spanish, Japanese, Korean, and Simplified Chinese.
-* **Automatic updates** powered by Velopack — no more manual downloads.
 * **Settings migration** from Chromatics 3 happens automatically the first time you run Chromatics 4.
-* An opt-in, privacy-respecting crash reporter that helps catch bugs quickly.
 
 ## Device compatibility
 
@@ -67,10 +64,10 @@ Chromatics uses [RGB.NET](https://github.com/DarthAffe/RGB.NET) to talk to your 
 * SteelSeries
 * Wooting
 * **OpenRGB** — any device exposed through an OpenRGB server
-* **Philips Hue (Beta)** — Hue bridges and compatible bulbs
+* **Philips Hue** — Hue bridges and compatible bulbs
 
 {% hint style="info" %}
-Single-zone and multi-zone-only keyboards are not supported, because RGB.NET does not support them.
+Single-zone and multi-zone-only keyboards only has limited support. For best compatibility, make sure your device support per-key LED illumination.
 {% endhint %}
 
 ## Is Chromatics safe to use?

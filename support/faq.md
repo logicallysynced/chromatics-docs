@@ -34,8 +34,6 @@ We have no reason to believe the game or Square Enix can detect Chromatics, and 
 
 Chromatics is designed specifically for Final Fantasy XIV. Game-driven effects like HP, job gauges, and reactive weather won't work in other games — Chromatics wouldn't know what to react to.
 
-That said, base layers like **Audio Visualizer** and **Screen Capture** will work outside FFXIV as long as the game is running in the window Chromatics is watching (for Screen Capture) or audio is coming out of your default output device (for Audio Visualizer).
-
 </details>
 
 <details>
@@ -66,7 +64,7 @@ Supported vendors:
 * SteelSeries
 * Wooting
 * OpenRGB — any device exposed through an OpenRGB server
-* Philips Hue (Beta)
+* Philips Hue
 
 If you're unsure whether your specific device model is supported, see the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET) or ask in our [Discord](https://discord.gg/sK47yFE).
 
@@ -78,7 +76,7 @@ If you're unsure whether your specific device model is supported, see the [RGB.N
 
 Chromatics relies on RGB.NET to do the vendor-specific work. If your device isn't supported there, it isn't supported in Chromatics either.
 
-The best path is to open a feature request on the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET). Once RGB.NET adds support, it will automatically work in the next Chromatics release that bumps to that version of the library.
+The best path is to open a feature request on the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET). Once RGB.NET adds support, it will be added in the next Chromatics release that includes that version of the library.
 
 </details>
 
@@ -86,7 +84,7 @@ The best path is to open a feature request on the [RGB.NET GitHub](https://githu
 
 <summary>Why aren't my single-zone or multi-zone keyboards supported?</summary>
 
-RGB.NET doesn't support single-zone or multi-zone-only keyboards, only per-key devices. This was a deliberate trade-off made when Chromatics switched to RGB.NET to replace the tangle of vendor-specific SDKs the older versions had to manage.
+RGB.NET doesn't fully support single-zone or multi-zone-only keyboards. Use per-key LED devices to get the full experience of Chromatics.
 
 </details>
 

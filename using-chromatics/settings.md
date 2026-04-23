@@ -19,12 +19,6 @@ Settings are grouped into four sections.
 
 ## General
 
-### Use saved cache for FFXIV data
-
-Chromatics downloads a small reference dataset on startup so it can recognise new content quickly after FFXIV patches. Turning this on makes it use a locally saved copy instead — useful if you're offline or on a metered connection.
-
-**Default:** Disabled.
-
 ### Start Chromatics when Windows starts
 
 Automatically launches Chromatics when you sign in to Windows. Pair this with **Start Chromatics minimised to the tray** below for a silent boot.
@@ -97,10 +91,10 @@ Supported providers:
 * Wooting
 * Novation
 * OpenRGB
-* Philips Hue **(Beta)** — requires a one-time bridge pairing.
+* Philips Hue — requires a one-time bridge pairing.
 
 {% hint style="info" %}
-Changing which providers are enabled takes effect after you restart Chromatics.
+We recommend restarting Chromatics after enabling new device providers.
 {% endhint %}
 
 ### Philips Hue pairing

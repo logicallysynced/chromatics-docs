@@ -58,13 +58,19 @@ This folder is the right one to back up if you want to move Chromatics to anothe
 
 ## Upgrading from Chromatics 3
 
-If you used Chromatics 3 on the same PC, **your settings are migrated automatically** the first time you start Chromatics 4. Chromatics looks for the older `*.chromatics3` files, copies them into the new format, and renames the originals so they are never lost.
+Chromatics 4 stores your settings in a new location on your computer, and **your previous settings will not be carried across automatically**. You can bring your layers and colour palette across manually using the steps below.
 
-You don't need to uninstall Chromatics 3 first, but once you've confirmed Chromatics 4 works for you, you can safely remove the old install.
+**To bring your layer mappings across:**
+1. Find your old `layers.chromatics3` file. It will be in the same folder you had Chromatics 3 installed in.
+2. Open Chromatics 4 and go to the **Mapping** tab.
+3. Click **Import** and select your `layers.chromatics3` file.
 
-{% hint style="info" %}
-If you ever want to import a Chromatics 3 layer or palette file by hand, the **Import** buttons in the Mappings and Palette tabs accept both `.chromatics3` and `.chromatics4` files.
-{% endhint %}
+**To bring your colour palette across:**
+1. Find your old `palette.chromatics3` file. It will be in the same folder you had Chromatics 3 installed in.
+2. Open Chromatics 4 and go to the **Palette** tab.
+3. Click **Import** and select your `palette.chromatics3` file.
+
+ Your effects settings will need to be configured again from scratch. We apologise for the inconvenience — the rebuild was significant enough that a fully automatic migration was not possible.
 
 ## Moving Chromatics to another PC
 
