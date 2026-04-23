@@ -40,15 +40,25 @@ Chromatics ships with a large library of lighting scenes and effects. A few of t
 
 ## What's new in Chromatics 4
 
-If you're coming from Chromatics 3, the app will feel familiar but everything under the hood has been upgraded. Highlights include:
+Chromatics 4 is a complete rebuild — same idea, much better everything. If you're coming from version 3, here's what's worth knowing:
 
-* A redesigned interface with light and dark themes.
-* **First-run wizard** that walks you through picking your devices the first time you launch.
-* Support for **OpenRGB** and **Philips Hue** alongside the existing vendor integrations.
-* A new **Audio Visualizer** base layer.
-* A new **Screen Capture** base layer.
-* **Full localisation** — the app is available in English, French, German, Spanish, Japanese, Korean, and Simplified Chinese.
-* **Manual import** of your Chromatics 3 layers and palette via the Import buttons on the Mappings and Palette tabs.
+**Looks and feels completely different (in a good way)**\
+The entire interface has been rebuilt from scratch. It's cleaner, faster, and comes with light and dark themes. The Mappings tab now has a live visual preview of your layout so you can see exactly what you're building.
+
+**Non-English keyboard? It finally works properly**\
+QWERTZ and AZERTY layouts are now fully supported — not just visually, but correctly. Key positions map to the right physical keys, and layout-aware effects like Audio Visualizer work on them too. Set your layout once in Settings and everything adjusts automatically.
+
+**Two brand new lighting modes**\
+The **Audio Visualizer** turns your keyboard into a real-time spectrum analyser driven by the game's audio output. The **Screen Capture (Beta)** samples colours from the game window and spreads them ambience-style across your devices.
+
+**More devices supported**\
+**OpenRGB** is now supported, which means Chromatics can control a huge range of devices that weren't possible before. **Philips Hue (Beta)** is also supported for the first time.
+
+**A lot of long-standing bugs are gone**\
+Layer settings getting lost after a session, lighting stopping after FFXIV connects, the Enmity Tracker showing the wrong colour, crashes on exit — all fixed.
+
+**Available in your language**\
+The app is now fully localised into English, French, German, Spanish, Japanese, Korean, and Simplified Chinese.
 
 ## Device compatibility
 

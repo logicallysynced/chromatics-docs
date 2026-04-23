@@ -112,14 +112,15 @@ In most cases yes. Razer Synapse, Corsair iCUE, Logitech G HUB, etc. each provid
 
 The biggest changes from Chromatics 3:
 
-* A rebuilt interface with light and dark themes.
+* A completely rebuilt interface with light and dark themes.
 * A first-run wizard to set up your devices.
 * Two new base layers: **Audio Visualizer** and **Screen Capture (Beta)**.
-* Support for **OpenRGB** and **Philips Hue (Beta)**.
+* Support for **OpenRGB** and **Philips Hue**.
+* **QWERTZ and AZERTY** keyboard layouts now fully supported.
 * **Global Brightness** control.
-* Automatic updates via Velopack.
 * Full localisation in several languages.
 * A privacy-respecting, opt-out crash reporter.
+* Many long-standing bug fixes — including layer settings getting lost, lighting stopping after FFXIV connects, and the Enmity Tracker showing the wrong colour.
 
 See the [Introduction](../README.md) for a full overview.
 
