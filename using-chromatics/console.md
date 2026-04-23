@@ -6,6 +6,6 @@ metaLinks:
 
 # Console
 
-<figure><img src="../.gitbook/assets/Chromatics3_MainScreen.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Chromatics4_ConsoleScreenLight.png" alt=""><figcaption></figcaption></figure>
 
 The console window shows information about how the application is running.

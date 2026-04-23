@@ -6,7 +6,7 @@ metaLinks:
 
 # Palettes
 
-<figure><img src="../.gitbook/assets/Chromatics3_PaletteScreen.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Chromatics4_PaletteScreenLight.png" alt=""><figcaption></figcaption></figure>
 
 The Color Palette tab allows you to re-assign any colours used by Chromatics effects.
 

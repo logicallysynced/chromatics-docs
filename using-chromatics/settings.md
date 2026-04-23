@@ -6,7 +6,7 @@ metaLinks:
 
 # Settings
 
-<figure><img src="../.gitbook/assets/Chromatics3_SettingsScreen.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Chromatics4_SettingsLight.png" alt=""><figcaption></figcaption></figure>
 
 ## General Settings
 
