@@ -10,44 +10,81 @@ metaLinks:
 
 [![Github All Releases](https://img.shields.io/github/downloads/roxaskeyheart/Chromatics/total.svg)](https://github.com/roxaskeyheart/Chromatics/releases) [![Github Latest Releases](https://img.shields.io/github/downloads/roxaskeyheart/Chromatics/latest/total.svg)](https://github.com/roxaskeyheart/Chromatics/releases/latest) [![Latest Release](https://img.shields.io/github/release/roxaskeyheart/Chromatics.svg)](https://github.com/roxaskeyheart/Chromatics/releases/latest) [![Discord](https://img.shields.io/discord/334196655131721741.svg)](https://discord.gg/sK47yFE)
 
-**Join our Discord:** \
+**Join our Discord:**\
 [![](https://discordapp.com/api/guilds/334196655131721741/widget.png?style=banner2)](https://discord.gg/sK47yFE)
 
+## Welcome to Chromatics 4
 
+Chromatics is a free companion app for **Final Fantasy XIV** that turns your RGB devices into an extension of the game. Your keyboard, mouse, headset, light strips, and smart bulbs can follow what's happening on screen — reacting to your health, your job, the weather around you, and much more.
 
-Chromatics is a third-party add-on for Final Fantasy XIV which creates lighting effects on your RGB devices. There are many different scenes and effects available including:
+Chromatics 4 is a complete, modern rebuild of the app. It uses a new UI built on Avalonia, a new rendering pipeline, and a refreshed device layer — so it runs smoothly, looks great, and supports more hardware than ever.
 
-* HP/MP/GP/CP
-* Keybinds - lights your keys depending on your mapped keybind status
-* Castbar progress
-* Target HP/Target Castbar progress
-* Job Gauges
-* Enmity Tracker
-* Battle Stance
-* Reactive Weather - displays static & animation weather effects
-* Duty Finder Bell - flash your device when your DF pops
-* Damage Flash - flash your device when you take damage
-* Gold Saucer Vegas Mode
-* Title screen & cutscene animations
+## What Chromatics can do
 
+Chromatics ships with a large library of lighting scenes and effects. A few of the highlights:
 
+* **Player vitals** — HP, MP, GP, and CP displayed live across your keys.
+* **Job Gauges** — job-specific gauges for every combat class.
+* **Cast bars** — your cast and your target's cast progress.
+* **Keybind lighting** — keys light up based on whether an ability is available.
+* **Battle Stance** — your whole setup shifts colour the moment you enter combat.
+* **Enmity Tracker** — instantly see your aggro status at a glance.
+* **Reactive Weather** — zones paint themselves with static or animated weather.
+* **Raid Zone Effects** — supported encounters take over your lighting with choreographed animations.
+* **Audio Visualizer** — your keyboard becomes a spectrum analyser driven by the game audio.
+* **Screen Capture** — ambient colours sampled from the game window spill across your devices.
+* **Duty Finder Bell** — devices flash when your queue pops.
+* **Damage Flash** — a sharp flash when your character takes a hit.
+* **Title screen and cutscene animations** — subtle flourishes for the quieter moments.
+* **Gold Saucer Vegas Mode** — because of course.
 
-Chromatics 3.x is built in .NET 6 and utilises the new version of Sharlayan for async FFXIV calls and RGB.NET to standardise RGB device SDK's (as opposed to manually managing them as Chromatics 2.x did)<br>
+## What's new in Chromatics 4
 
-## **Important Notes**&#x20;
+If you're coming from Chromatics 3, the app will feel familiar but everything under the hood has been upgraded. Highlights include:
 
-### _**Beta Release**_&#x20;
+* A redesigned interface with light and dark themes.
+* **First-run wizard** that walks you through picking your devices the first time you launch.
+* Support for **OpenRGB** and **Philips Hue (Beta)** alongside the existing vendor integrations.
+* A new **Audio Visualizer** base layer.
+* A new **Screen Capture (Beta)** base layer.
+* **Global Brightness** control across every device.
+* **Full localisation** — the app is available in English, French, German, Spanish, Japanese, Korean, and Simplified Chinese.
+* **Automatic updates** powered by Velopack — no more manual downloads.
+* **Settings migration** from Chromatics 3 happens automatically the first time you run Chromatics 4.
+* An opt-in, privacy-respecting crash reporter that helps catch bugs quickly.
 
-Chromatics 3.0 is currently in public beta, as such it is expected that there will be bugs, possibly major bugs which can cause crashes or other stability. While I've done my best to test all the features extensively for stability, every PC is different and I can't possibly account for every variation - that's why we do these Beta releases!
+## Device compatibility
 
-If you do come across issues, please let us know by posting in the [Discord](https://discord.gg/sK47yFE) channel. As Chromatics 3.x is a complete rebuild of Chromatics from the ground up and should be _considerably_ more CPU & memory efficient than 2.x. However please keep an eye on performance and report any issues you find, especially when running for a long time. <br>
+Chromatics uses [RGB.NET](https://github.com/DarthAffe/RGB.NET) to talk to your devices. If your device is supported by RGB.NET (or by one of the extra providers Chromatics adds), it will work with Chromatics. Supported vendors include:
 
-### _**Device Compatibility**_&#x20;
+* Asus
+* Cooler Master
+* Corsair
+* Logitech
+* MSI
+* Novation
+* Razer
+* SteelSeries
+* Wooting
+* **OpenRGB** — any device exposed through an OpenRGB server
+* **Philips Hue (Beta)** — Hue bridges and compatible bulbs
 
-Chromatics 2.x (and 1.x) was originally designed to work only with Razer RGB devices using a dedicated library. Over time we added vendor devices, but each of these required their own separate library to work with their vendor devices. After many years this has made the codebase very difficult to maintain and update due to managing upwards of 8 different libraries, to the point where it became impossible for me to keep them all up to date.
+{% hint style="info" %}
+Single-zone and multi-zone-only keyboards are not supported, because RGB.NET does not support them.
+{% endhint %}
 
-In Chromatics 3.x we are implementing a single library, RGB.NET that is designed to work with multiple vendors in a unified way. This will make continued development and management much easier, as well as far more memory/CPU efficient. The trade off to this is Chromatics' device compatibility will be limited to what vendors & devices RGB.NET supports.
+## Is Chromatics safe to use?
 
-If your device is not currently supported, please get in touch with the developers of [RGB.NET](https://github.com/DarthAffe/RGB.NET) to have it implemented.&#x20;
+Yes. Chromatics reads game memory to follow what's happening in FFXIV, but it does so strictly read-only — it never writes to, modifies, or injects into the game in any way.
 
-<mark style="color:orange;">Due to RGB.NET not supporting them, with the release of 3.0, single and multi-zone keyboards will no longer be supported.</mark>
+We still recommend not discussing third-party tools in-game, since technically any third-party interaction is discouraged by the game's terms of service. There are no reported cases of Chromatics users being warned or banned, but caution is always wise.
+
+See the [FAQ](support/faq.md) for more detail.
+
+## Getting started
+
+* [Prerequisites](getting-started/prerequisites.md) — what your PC needs before installing.
+* [Installation](getting-started/installation.md) — step-by-step install instructions.
+* [First Launch](getting-started/first-launch.md) — what to expect the first time you open Chromatics.
+
+If you run into trouble, the [Troubleshooting](support/troubleshooting.md) page covers the most common fixes, and our [Discord](https://discord.gg/sK47yFE) community is always happy to help.

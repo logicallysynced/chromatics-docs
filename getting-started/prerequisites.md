@@ -7,15 +7,29 @@ metaLinks:
 
 # Prerequisites
 
-For Chromatics 3 to work, you must have the following prerequisites installed on your system:
+Before installing Chromatics, please make sure your PC meets the following requirements.
 
-[.NET 8 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.6-windows-x64-installer)
+## System requirements
 
-[Microsoft Visual C++ Redistributable 2022](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+* **Windows 10 or Windows 11**, 64-bit.
+* An internet connection for the initial download and for update checks.
+* The **RGB software or SDK** for the devices you want to control (for example Razer Synapse, Corsair iCUE, Logitech G HUB). Chromatics talks to each vendor's SDK, so the vendor's software still needs to be installed and running.
 
+## Required runtimes
 
+Chromatics 4 is built on .NET 10 and uses the latest Microsoft Visual C++ redistributable.
 
-### System Requirements
+* **[.NET 10 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)**
+* **[Microsoft Visual C++ Redistributable 2015–2022 (x64)](https://aka.ms/vs/17/release/vc_redist.x64.exe)**
 
-* Windows 10 or higher running 64-bit version
+{% hint style="success" %}
+**If you use the installer version of Chromatics**, both of these runtimes will be installed for you automatically. You do not need to download them yourself.
+{% endhint %}
 
+{% hint style="warning" %}
+**If you use the portable (ZIP) version**, you need to install both runtimes manually before first launch. Chromatics will warn you on startup if the Visual C++ Redistributable is missing and offer to open the download page for you.
+{% endhint %}
+
+## Supported devices
+
+Chromatics supports a wide range of RGB devices from Asus, Cooler Master, Corsair, Logitech, MSI, Novation, Razer, SteelSeries, Wooting, OpenRGB, and Philips Hue. See the [Introduction](../README.md#device-compatibility) or the [FAQ](../support/faq.md) for the full compatibility list.

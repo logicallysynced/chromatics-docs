@@ -6,60 +6,88 @@ metaLinks:
 
 # Mappings
 
-The mappings page allows you to setup the lighting exactly the way you like. A default profile is loaded when you launch Chromatics for the first time.
+The **Mappings** tab is the heart of Chromatics. It's where you decide what each of your devices does and how your lighting is laid out.
 
-Chromatics 3 uses the concept of layers, you can setup multiple layers per device and map those layers to specific keys (or LEDs) on a device.
+Chromatics uses a simple **layer** system: every device has a stack of layers, and each layer controls a specific piece of behaviour — a solid background colour, your HP bar, your cast bar, and so on. Higher layers paint over lower ones, exactly like layers in image editing software.
 
+A default layer setup is already in place the first time you open Chromatics, so you have something working to build on.
 
+## Layer types
 
-## Layer Types
+Chromatics supports three kinds of layers. See [Layer Types](ffxiv-functions.md) for the full reference.
 
-#### Base Layer
+### Base layer
 
-The base layer is always set as the lowest layer for each device type, it contains all keys/LEDs in a device. You can use this type of layer to set a solid colour over the entire device to build upon. This is a static layer that you cannot move, remove or add a new base layer.
+The **Base Layer** always sits at the bottom of the stack. It covers every key or LED on your device and is usually used for a solid background colour or a whole-device effect like Reactive Weather or the Audio Visualizer. Each device has exactly one base layer — you can't add another, move it, or remove it.
 
-#### Dynamic Layer
+### Dynamic layer
 
-Dynamic Layers allow you to build out certain looks on your devices. There are many [types](ffxiv-functions.md) of dynamic layers and you can add/remove specific keys from a dynamic layer.
+**Dynamic Layers** are where most of the game-driven magic happens. They sit on top of the base layer and can be assigned to any subset of keys or LEDs you like — an HP bar across your function row, a job gauge across your number keys, keybind lighting across your ability keys.
 
-#### Effect Layer
+You can stack as many dynamic layers as you want, reorder them, and enable or disable them individually.
 
-The effect layer contains all keys/LEDs of a device, and also can't be moved or removed. Most effects operate on this layer which is above all other layers.
+### Effect layer
 
+The **Effect Layer** sits at the very top of the stack and covers the whole device. Quick flashes — such as the Duty Finder Bell and Damage Flash — use this layer so they show above everything else. Like the base layer, each device has exactly one effect layer and it cannot be moved or removed.
 
-
-## Mappings
+## The Mappings screen
 
 <figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight.png" alt=""><figcaption></figcaption></figure>
 
-<table><thead><tr><th width="106.33333333333331"></th><th></th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>Device Selection</strong><br>Changes the currently displayed device type.</td></tr><tr><td><strong>B</strong></td><td><strong>Import Layers</strong><br>Imports a layer file from your PC. This will overwrite all existing layers for all devices you have setup.</td></tr><tr><td><strong>C</strong></td><td><strong>Export Layers</strong><br>Exports your current layer setup to a file on your PC.</td></tr><tr><td><strong>D</strong></td><td><strong>Preview Layers</strong><br>Display your current layers on your devices.</td></tr><tr><td><strong>E</strong></td><td><strong>Layer Type to Add</strong><br>Change what type of layer to add. Currently this is only set to Dynamic Layer.</td></tr><tr><td><strong>F</strong></td><td><strong>Add Layer</strong><br>Add a new layer to the list, this will be added above the base layer. You cannot add a base or effect layer.</td></tr><tr><td><strong>G</strong></td><td><strong>Layer ID</strong><br>The layer ID for each layer, which also indicates the stack order of the layer. A layer with a higher ID is always on top of a layer with a lower ID.<br><br>You can drag and drop layers to change their order, but you cannot change the order of the base or effect layer.</td></tr><tr><td><strong>H</strong></td><td><strong>Layer Type</strong><br>The layer type of the selected layer, either base, dynamic or effect layer.</td></tr><tr><td><strong>I</strong></td><td><strong>Layer Function</strong><br>The function for the layer, which indicates the what type of FFXIV integration is attached to that layer. For a list of available functions, see <a href="ffxiv-functions.md">FFXIV Functions</a>.</td></tr><tr><td><strong>J</strong></td><td><strong>Layer Enable</strong><br>Enable/disabled this layer.</td></tr><tr><td><strong>K</strong></td><td><strong>Edit Layer</strong><br>Edit the keys assigned to the layer.</td></tr><tr><td><strong>L</strong></td><td><strong>Delete/Copy Layer</strong><br>Deletes the selected layer.<br>If you hold SHIFT, this will change to copy and allow you to duplicate the layer.</td></tr><tr><td><strong>M</strong></td><td><strong>Enable Bleeding</strong><br>This button determines whether a layer can bleed through to lower layers when the current layer has nothing to display. When set to enabled, the layer can bleed through, and when set to disabled, the layer will not bleed through to lower layers.</td></tr><tr><td><strong>N</strong></td><td><strong>Layer Mode</strong><br>On some layers, there are different modes available depending on the type of device.</td></tr><tr><td><strong>O</strong></td><td><strong>Undo</strong><br>When editing a layer, you can undo any changes you have made using this button.</td></tr><tr><td><strong>P</strong></td><td><strong>Reverse</strong><br>When editing a layer, you can reverse the selected keys using this button.</td></tr><tr><td><strong>Q</strong></td><td><strong>Clear</strong><br>When editing a layer, you can clear all selected keys using this button. When clearing a layer, you will exit editing mode.</td></tr><tr><td><strong>R</strong></td><td><strong>Key Selection</strong><br>When editing a layer, you can select which keys you want attached to the layer.</td></tr></tbody></table>
+<table><thead><tr><th width="95"></th><th></th></tr></thead><tbody>
+<tr><td><strong>A</strong></td><td><strong>Device Selection</strong><br>Choose which device you're editing. Every device has its own independent stack of layers.</td></tr>
+<tr><td><strong>B</strong></td><td><strong>Import Layers</strong><br>Load a layer file from disk. This replaces your current layer setup for every device. Chromatics 3 files (<code>.chromatics3</code>) are also accepted.</td></tr>
+<tr><td><strong>C</strong></td><td><strong>Export Layers</strong><br>Save your current layer setup to a file so you can back it up or share it.</td></tr>
+<tr><td><strong>D</strong></td><td><strong>Preview Layers</strong><br>Show what your layers look like on the selected device without needing the game running.</td></tr>
+<tr><td><strong>E</strong></td><td><strong>Layer Type to Add</strong><br>Chooses the type of layer the <strong>Add</strong> button will create. Dynamic is the only option you can add manually.</td></tr>
+<tr><td><strong>F</strong></td><td><strong>Add Layer</strong><br>Adds a new dynamic layer directly above the base layer. Base and Effect layers cannot be added — they already exist.</td></tr>
+<tr><td><strong>G</strong></td><td><strong>Layer ID</strong><br>A unique ID for the layer that also shows its stack order. Higher IDs sit on top of lower ones.<br><br>You can drag and drop dynamic layers to change their order. The base and effect layers are always pinned at the bottom and top of the stack.</td></tr>
+<tr><td><strong>H</strong></td><td><strong>Layer Type</strong><br>Shows whether this row is a Base, Dynamic, or Effect layer.</td></tr>
+<tr><td><strong>I</strong></td><td><strong>Layer Function</strong><br>The behaviour attached to this layer — the HP tracker, the keybind highlight, reactive weather, and so on. See <a href="ffxiv-functions.md">Layer Types</a> for the full list.</td></tr>
+<tr><td><strong>J</strong></td><td><strong>Layer Enable</strong><br>Turn this layer on or off without deleting it.</td></tr>
+<tr><td><strong>K</strong></td><td><strong>Edit Layer</strong><br>Switch to edit mode so you can choose which keys or LEDs this layer covers.</td></tr>
+<tr><td><strong>L</strong></td><td><strong>Delete / Copy Layer</strong><br>Delete the selected layer. <strong>Hold Shift</strong> while clicking to duplicate the layer instead.</td></tr>
+<tr><td><strong>M</strong></td><td><strong>Enable Bleeding</strong><br>Controls what happens when the layer has nothing to display. With bleeding <em>off</em>, empty areas are filled with the layer's negative colour (usually black). With bleeding <em>on</em>, empty areas become transparent so the layer below shows through. See <a href="#layer-bleeding">Layer bleeding</a> below.</td></tr>
+<tr><td><strong>N</strong></td><td><strong>Layer Mode</strong><br>Some layer types support different display modes — typically <em>Interpolate</em> or <em>Fade</em>. See <a href="#layer-modes">Layer modes</a>.</td></tr>
+<tr><td><strong>O</strong></td><td><strong>Undo</strong><br>While editing a layer, revert your most recent key selection change.</td></tr>
+<tr><td><strong>P</strong></td><td><strong>Reverse</strong><br>While editing, flip the currently selected keys. Useful for rapidly building mirrored layouts.</td></tr>
+<tr><td><strong>Q</strong></td><td><strong>Clear</strong><br>While editing, deselect every key. Clearing also exits edit mode.</td></tr>
+<tr><td><strong>R</strong></td><td><strong>Key Selection</strong><br>The visual layout of your device. Click keys or LEDs to include or exclude them from the layer you are editing.</td></tr>
+</tbody></table>
 
+## Layer bleeding
 
+Most layers don't have something to show at every moment. An HP bar, for example, only lights up the keys that represent your current HP — the rest would normally be dark.
 
-## Keyboard Layouts
+* **Bleeding off** (default for most layers) — the layer paints the empty keys with its **negative colour** (usually black). You see a clean bar with a dark background.
+* **Bleeding on** — the empty keys become transparent, and whatever is underneath (the next layer down, or ultimately the base layer) shows through.
 
-Currently only one keyboard layout en-us is available on the mapping tab. This is a QWERTY keyboard so if you use a different layout, such as AZERTY you will need to remap keys accordingly.
+Layer bleeding is what lets you combine several dynamic layers without them painting over each other. A common pattern is keybinds on bleeding layers above a solid base colour so your inactive keys still show a pleasant background.
 
+## Layer modes
 
-
-## Layer Bleeding
-
-By default, colour palettes for each layer function have a negative colour. This means that when this layer has nothing to display it will display the negative colour, usually black.
-
-For example, if you have the dynamic layer HP Tracker assigned to a set of keys and you were currently at 50% HP, half of your keys will be the HP tracker colour palette (default green) and half of your keys will be the negative color (default black).
-
-When bleeding is enabled for a layer, instead of showing the negative colour, it becomes transparent instead allowing lower layers to _bleed_ through.
-
-
-
-## Layer Modes
-
-Certain dynamic layers support changing the mode of the layer.
+Some dynamic layers can display in different ways depending on the kind of device you're on.
 
 ### Interpolate
 
-When set to interpolate, the lighting of the layer's selected keys will be spread across those keys. This can give the effect of a bar across your device (e.g. health bar).
+The layer spreads its values smoothly across the selected keys in order. This is ideal on keyboards and other devices with straight rows of keys — an HP bar that fills left-to-right, for example.
 
 ### Fade
 
-When set to fade, the lighting of the layer's selected keys will all fade between the two colour's. This mode is good for non-keyboard devices which don't necessarily have consecutive key layouts.
+The layer fades every selected key between two colours as a single group. This works better on devices without a linear layout, such as mousepads, light strips, or Hue bulbs.
+
+## Keyboard layouts
+
+Chromatics supports **QWERTY**, **QWERTZ**, and **AZERTY** keyboards. The layout is set in **Settings → Appearance & Language → Keyboard Layout**. Changing it remaps your existing layers automatically so your mappings stay correct on the new layout — no need to rebuild anything.
+
+{% hint style="info" %}
+If you use a layout other than the one set here, your physical keys might light up in positions that look unusual. Switch to the matching layout in Settings and Chromatics will realign everything.
+{% endhint %}
+
+## Tips for building your first setup
+
+* Start from the default layers and tweak a little at a time.
+* Use the **Preview Layers** button to test designs without launching the game.
+* **Export** frequently. A layer file is small and easy to back up.
+* Swap layer order by drag-and-drop — dynamic layers at the top paint on top.
+* If things look wrong, toggle **Layer Enable** on each layer to narrow down which one is misbehaving.
