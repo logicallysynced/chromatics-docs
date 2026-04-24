@@ -33,7 +33,6 @@ The **Effect Layer** sits at the very top of the stack and covers the whole devi
 ## The Mappings screen
 
 <figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight1_notated.png" alt=""><figcaption></figcaption></figure>
-<figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight2_notated.png" alt=""><figcaption></figcaption></figure>
 
 <table><thead><tr><th width="95"></th><th></th></tr></thead><tbody>
 <tr><td><strong>A</strong></td><td><strong>Device Selection</strong><br>Choose which device you're editing. Every device has its own independent stack of layers.</td></tr>
@@ -48,6 +47,11 @@ The **Effect Layer** sits at the very top of the stack and covers the whole devi
 <tr><td><strong>J</strong></td><td><strong>Layer Type</strong><br>Shows whether this row is a Base, Dynamic, or Effect layer.</td></tr>
 <tr><td><strong>K</strong></td><td><strong>Layer Function</strong><br>The behaviour attached to this layer — the HP tracker, keybind highlight, reactive weather, and so on. See <a href="ffxiv-functions.md">Layer Types</a> for the full list.</td></tr>
 <tr><td><strong>L</strong></td><td><strong>Layer Enable</strong><br>Turn this layer on or off without deleting it.</td></tr>
+</tbody></table>
+
+<figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight2_notated.png" alt=""><figcaption></figcaption></figure>
+
+<table><thead><tr><th width="95"></th><th></th></tr></thead><tbody>
 <tr><td><strong>M</strong></td><td><strong>Virtual Device</strong><br>An on-screen representation of a non-keyboard device (such as a mouse, mousepad, or light strip). Click buttons or zones to include them in the layer you're editing. When the layout is unlocked, you can also drag buttons to rearrange them — useful for position-based effects.</td></tr>
 <tr><td><strong>N</strong></td><td><strong>Reset Layout</strong><br>For non-keyboard devices only. Resets the positions of all buttons back to their default grid layout.</td></tr>
 <tr><td><strong>O</strong></td><td><strong>Lock Layout</strong><br>Locks or unlocks the virtual device so you can drag buttons into custom positions. Useful for position-based effects that rely on 2D coordinates.</td></tr>
