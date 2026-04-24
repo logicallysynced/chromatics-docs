@@ -121,7 +121,7 @@ Chromatics needs admin privileges to read FFXIV memory. When on, Chromatics will
 
 **Default:** Disabled.
 
-### Send anonymous crash reports and performance data
+### Send anonymous performance and error telemetry
 
 Lets Chromatics send anonymous crash reports to help us catch and fix bugs faster. **No personally identifying information is collected** — just the crash itself, the app version, and basic environment info. If Chromatics crashes, you'll see a small dialog where you can optionally add a comment describing what you were doing and choose whether to send a report or not - this always appears regardless of if you have opted-in or out, but it's always your choice to send.
 

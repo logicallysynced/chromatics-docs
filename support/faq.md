@@ -184,7 +184,7 @@ Copy your `%AppData%\Chromatics\` folder from the old PC to the same location on
 
 Chromatics collects **nothing** in normal use. The only time any data leaves your PC is if you have crash reporting turned on (which is the default) and Chromatics actually crashes. In that case, an anonymous crash report is sent to help us diagnose the issue.
 
-Crash reports contain the crash stack, the app version, and basic environment information — no personally identifying information. You can turn the feature off in **Settings → Advanced → Send anonymous crash reports and performance data**.
+You can manage this in **Settings → Advanced → Send anonymous performance and error telemetry**. Crash reporting is always available, but sending a crash report is optional and remains your choice.
 
 </details>
 
@@ -192,7 +192,7 @@ Crash reports contain the crash stack, the app version, and basic environment in
 
 <summary>How do I opt out of crash reporting?</summary>
 
-Open **Settings → Advanced** and turn off **Send anonymous crash reports and performance data**.
+Open **Settings → Advanced** and turn off **Send anonymous performance and error telemetry**.
 
 </details>
 
