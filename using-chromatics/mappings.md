@@ -32,8 +32,7 @@ The **Effect Layer** sits at the very top of the stack and covers the whole devi
 
 ## The Mappings screen
 
-<figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight1_notated.png" alt=""><figcaption></figcaption></figure>
-<figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight2_notated.png" alt=""><figcaption></figcaption></figure>
+<table data-view="cards" data-full-width="false"><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight1_notated.png" alt=""><figcaption></figcaption></figure></td><td><figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight2_notated.png" alt=""><figcaption></figcaption></figure></td></tr></tbody></table>
 
 <table><thead><tr><th width="95"></th><th></th></tr></thead><tbody>
 <tr><td><strong>A</strong></td><td><strong>Device Selection</strong><br>Choose which device you're editing. Every device has its own independent stack of layers.</td></tr>
