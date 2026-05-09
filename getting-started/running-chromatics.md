@@ -11,9 +11,9 @@ metaLinks:
 
 Chromatics needs Final Fantasy XIV to be running before it can read anything from the game. For the smoothest experience, open apps in this order:
 
-1. **Final Fantasy XIV** — launch the game and reach the title screen or beyond.
-2. **Chromatics** — start the app. It will connect to the game within a few seconds.
-3. **Any other third-party software** — your RGB vendor's control panel, overlays, etc.
+1. **Final Fantasy XIV** - launch the game and reach the title screen or beyond.
+2. **Chromatics** - start the app. It will connect to the game within a few seconds.
+3. **Any other third-party software** - your RGB vendor's control panel, overlays, etc.
 
 If Chromatics is already running when you start the game, it will detect FFXIV automatically. You don't have to restart anything.
 
@@ -60,4 +60,4 @@ You can also trigger an update check yourself any time:
 
 ### Portable users
 
-If you use the portable ZIP version, you can still use in-app auto-updates. If you prefer to do it by hand, just download the newest ZIP and extract it over your existing folder. Your settings live in `%AppData%\Chromatics\`, so they won't be affected.
+If you use the portable ZIP version, you can still use in-app auto-updates. If you prefer to do it by hand, download the newest ZIP and extract it over your existing folder. Your settings live in `%AppData%\Chromatics\`, so they won't be affected.

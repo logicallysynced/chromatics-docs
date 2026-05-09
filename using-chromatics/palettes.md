@@ -14,7 +14,7 @@ Every layer and effect in Chromatics pulls its colours from a named palette entr
 
 ## Filtering by category
 
-Chromatics has a lot of colours, so the category drop-down lets you narrow the list down to whatever you're actually working on.
+Chromatics has a lot of colours, so the category drop-down lets you narrow the list down to what you're working on.
 
 | Category | Used for |
 | --- | --- |
@@ -25,10 +25,10 @@ Chromatics has a lot of colours, so the category drop-down lets you narrow the l
 | **Enmity / Aggro** | Enmity tracker stages. |
 | **Target / Enemy** | Target HP tracker and target castbar. |
 | **Status Effects** | Buff and debuff colouring. |
-| **Cooldowns / Keybinds** | Keybind highlighting — available, on cooldown, unassigned. |
+| **Cooldowns / Keybinds** | Keybind highlighting - available, on cooldown, unassigned. |
 | **Notifications** | Things like the Duty Finder Bell and other alerts. |
 | **Job Gauges** | Job Gauge A / B / C colours for every combat class. |
-| **Reactive Weather** | Colours for every weather type — rain, thunder, snow, and so on. |
+| **Reactive Weather** | Colours for every weather type - rain, thunder, snow, and so on. |
 | **Job Classes** | The colour associated with each job / class. |
 | **Raid Zone Effects** | Colours used by the choreographed raid-zone animations. |
 | **Audio Visualizer** | Base, low, mid, and high frequency colours for the Audio Visualizer. |
@@ -41,7 +41,7 @@ Click any colour swatch in the list to open the colour picker. You can enter val
 * Typing an RGB value.
 * Typing a hex code.
 
-Your change is applied immediately — no save button needed.
+Chromatics applies your change immediately. There's no save button.
 
 ## Importing and exporting palettes
 

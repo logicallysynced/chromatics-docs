@@ -22,7 +22,7 @@ Yes. Chromatics is free and open source under the [MIT License](../license.md). 
 
 <summary>Is Chromatics safe to use with FFXIV? Could I get banned?</summary>
 
-Chromatics reads FFXIV's memory using a library called **Sharlayan**. It is strictly **read-only** — Chromatics never writes to the game, modifies it, or injects into it in any way.
+Chromatics reads FFXIV's memory using a library called **Sharlayan**. It is strictly **read-only** - Chromatics never writes to the game, modifies it, or injects into it in any way.
 
 We have no reason to believe the game or Square Enix can detect Chromatics, and there are no reported cases of bans or warnings from using it. That said, FFXIV's terms of service do discourage any third-party interaction with the game client, so we recommend not discussing Chromatics (or any third-party tool) in-game.
 
@@ -32,7 +32,7 @@ We have no reason to believe the game or Square Enix can detect Chromatics, and 
 
 <summary>Does Chromatics work in other games?</summary>
 
-Chromatics is designed specifically for Final Fantasy XIV. Game-driven effects like HP, job gauges, and reactive weather won't work in other games — Chromatics wouldn't know what to react to.
+Chromatics is designed specifically for Final Fantasy XIV. Game-driven effects like HP, job gauges, and reactive weather won't work in other games - Chromatics wouldn't know what to react to.
 
 </details>
 
@@ -63,10 +63,10 @@ Supported vendors:
 * Razer
 * SteelSeries
 * Wooting
-* OpenRGB — any device exposed through an OpenRGB server
+* OpenRGB - any device exposed through an OpenRGB server
 * Philips Hue
-* PlayStation (Beta) — DualShock 4 and DualSense controllers
-* LIFX (Beta) — bulbs, multi-zone strips and matrix devices
+* PlayStation (Beta) - DualShock 4 and DualSense controllers
+* LIFX (Beta) - bulbs, multi-zone strips and matrix devices
 
 If you're unsure whether your specific device model is supported, see the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET) or ask in our [Discord](https://discord.gg/sK47yFE).
 
@@ -76,7 +76,7 @@ If you're unsure whether your specific device model is supported, see the [RGB.N
 
 <summary>Will Chromatics work with my DualShock 4 or DualSense controller?</summary>
 
-Yes — both are supported in Chromatics 4.1.27 and later as part of the **PlayStation (Beta)** provider. Chromatics drives the lightbar and the five player-indicator LEDs over **USB or Bluetooth**, and treats the controller as a regular device on the Mappings tab so you can assign layers to it.
+Yes - both are supported in Chromatics 4.1.27 and later as part of the **PlayStation (Beta)** provider. Chromatics drives the lightbar and the five player-indicator LEDs over **USB or Bluetooth**, and treats the controller as a regular device on the Mappings tab so you can assign layers to it.
 
 Your controller's input keeps working normally in games while Chromatics is driving the lights. Chromatics only writes to the lighting, never the input pipeline.
 
@@ -88,7 +88,7 @@ If your controller doesn't show up, another tool (most often **Steam Input**, **
 
 <summary>Does Chromatics need a LIFX cloud account?</summary>
 
-No. Chromatics talks to your LIFX devices using the **Local LAN protocol** — everything happens on your local network with no internet round-trip. You don't need a LIFX cloud account, and you don't need to sign in to anything.
+No. Chromatics talks to your LIFX devices using the **Local LAN protocol** - everything happens on your local network with no internet round-trip. You don't need a LIFX cloud account, and you don't need to sign in to anything.
 
 You do need your LIFX devices and your PC to be on the same network. If you have your bulbs on an isolated IoT VLAN, Chromatics won't be able to find them.
 
@@ -98,7 +98,7 @@ You do need your LIFX devices and your PC to be on the same network. If you have
 
 <summary>What happens to my LIFX bulbs when I close Chromatics?</summary>
 
-Chromatics records the colour and on/off state of every LIFX device the moment you start controlling it. When Chromatics releases the device — you disable LIFX in Settings, or close the app — each one is restored to that earlier state.
+Chromatics records the colour and on/off state of every LIFX device the moment you start controlling it. When Chromatics releases the device - you disable LIFX in Settings, or close the app - each one is restored to that earlier state.
 
 Translation: if your bedside lamp was a warm 2700K white before Chromatics took over, it goes back to a warm 2700K white when you close the app, even if it was mid-strobe at the time.
 
@@ -124,9 +124,9 @@ RGB.NET doesn't fully support single-zone or multi-zone-only keyboards. Use per-
 
 <details>
 
-<summary>My keyboard is QWERTZ / AZERTY — will Chromatics work correctly?</summary>
+<summary>My keyboard is QWERTZ / AZERTY - will Chromatics work correctly?</summary>
 
-Yes. Open **Settings → Appearance & Language → Keyboard Layout** and choose **QWERTZ** or **AZERTY**. Chromatics remaps your existing layers for the new layout automatically — no rebuild required.
+Yes. Open **Settings → Appearance & Language → Keyboard Layout** and choose **QWERTZ** or **AZERTY**. Chromatics remaps your existing layers for the new layout automatically - no rebuild required.
 
 </details>
 
@@ -134,7 +134,7 @@ Yes. Open **Settings → Appearance & Language → Keyboard Layout** and choose 
 
 <summary>Do I still need my RGB vendor's software installed?</summary>
 
-In most cases yes. Razer Synapse, Corsair iCUE, Logitech G HUB, etc. each provide the SDK that Chromatics talks to. Keep them installed and running in the background.
+Yes, for most devices. Razer Synapse, Corsair iCUE, Logitech G HUB, etc. each provide the software Chromatics talks to. Keep them installed and running in the background.
 
 </details>
 
@@ -154,7 +154,7 @@ The biggest changes from Chromatics 3:
 * **Global Brightness** control.
 * Full localisation in several languages.
 * A privacy-respecting, opt-out crash reporter.
-* Many long-standing bug fixes — including layer settings getting lost, lighting stopping after FFXIV connects, and the Enmity Tracker showing the wrong colour.
+* Many long-standing bug fixes - including layer settings getting lost, lighting stopping after FFXIV connects, and the Enmity Tracker showing the wrong colour.
 
 See the [Introduction](../README.md) for a full overview.
 
@@ -164,7 +164,7 @@ See the [Introduction](../README.md) for a full overview.
 
 <summary>How does Chromatics interact with the game?</summary>
 
-Chromatics uses [Sharlayan](https://github.com/FFXIVAPP/sharlayan) to read FFXIV's memory. From that it derives things like your HP, MP, job, keybinds, weather, zone, and cast progress — everything it needs to drive the layers you've set up.
+Chromatics uses [Sharlayan](https://github.com/FFXIVAPP/sharlayan) to read FFXIV's memory. From that it derives things like your HP, MP, job, keybinds, weather, zone, and cast progress - everything it needs to drive the layers you've set up.
 
 Because it reads memory, Chromatics needs to run as an administrator.
 
@@ -184,7 +184,7 @@ You can tell Chromatics to handle that silently from now on via **Settings → A
 
 <summary>Can I import my Chromatics 3 setup?</summary>
 
-Your layers and colour palette can be brought across manually — Chromatics 4 stores its settings in a new location, so they are **not** carried over automatically.
+You can bring your layers and colour palette across manually. Chromatics 4 stores its settings in a new location, so they **don't** carry over automatically.
 
 **To bring your layer mappings across:**
 
@@ -198,7 +198,7 @@ Your layers and colour palette can be brought across manually — Chromatics 4 s
 2. Open Chromatics 4 and go to the **Palette** tab.
 3. Click **Import** and select your `palette.chromatics3` file.
 
-Your effects settings and general settings will need to be reconfigured from scratch — the rebuild was significant enough that a fully automatic migration wasn't possible.
+You'll need to set up your effects and general settings from scratch. The rebuild changed too much under the hood for everything to carry over automatically.
 
 </details>
 
@@ -216,7 +216,7 @@ Copy your `%AppData%\Chromatics\` folder from the old PC to the same location on
 
 <summary>What data does Chromatics collect?</summary>
 
-Chromatics collects **nothing** in normal use. The only time any data leaves your PC is if you have crash reporting turned on (which is the default) and Chromatics actually crashes. In that case, an anonymous crash report is sent to help us diagnose the issue.
+Chromatics collects **nothing** in normal use. The only time any data leaves your PC is if you have crash reporting turned on (which is the default) and Chromatics crashes. In that case, an anonymous crash report is sent to help us diagnose the issue.
 
 You can manage this in **Settings → Advanced → Send anonymous performance and error telemetry**. Crash reporting is always available, but sending a crash report is optional and remains your choice.
 
@@ -236,7 +236,7 @@ Open **Settings → Advanced** and turn off **Send anonymous performance and err
 
 <summary>I found a bug. How do I report it?</summary>
 
-Please file it on our [GitHub issues page](https://github.com/roxaskeyheart/Chromatics/issues) or share it in our [Discord](https://discord.gg/sK47yFE). When reporting, include your Chromatics version, your devices, and a ZIP from **Settings → Advanced → Collect Logs** if you can — it makes diagnosis much faster.
+Please file it on our [GitHub issues page](https://github.com/roxaskeyheart/Chromatics/issues) or share it in our [Discord](https://discord.gg/sK47yFE). When reporting, include your Chromatics version, your devices, and a ZIP from **Settings → Advanced → Collect Logs** if you can - it makes diagnosis much faster.
 
 </details>
 
@@ -244,7 +244,7 @@ Please file it on our [GitHub issues page](https://github.com/roxaskeyheart/Chro
 
 <summary>Can you add this feature?</summary>
 
-We love feature suggestions! The best places are our [GitHub](https://github.com/roxaskeyheart/Chromatics/issues) or [Discord](https://discord.gg/sK47yFE). Please search first to see if someone has already suggested it — we do try to keep track of community requests.
+We love feature suggestions! The best places are our [GitHub](https://github.com/roxaskeyheart/Chromatics/issues) or [Discord](https://discord.gg/sK47yFE). Please search first to see if someone has already suggested it - we keep an eye on community requests.
 
 </details>
 

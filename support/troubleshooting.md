@@ -19,13 +19,13 @@ Before anything else, make sure you're on the latest version. Open **Settings �
 * Make sure the **.NET 10 Desktop Runtime (x64)** and **Visual C++ 2017–2026 Redistributable (x64)** are both installed. See [Prerequisites](../getting-started/prerequisites.md).
 * If you're using the portable ZIP, right-click the downloaded file, open **Properties**, and click **Unblock** before extracting.
 
-**Check the console.** The [Console](../using-chromatics/console.md) tab lists any startup errors first. Read them top-to-bottom — a missing runtime or misbehaving vendor SDK usually announces itself loudly.
+**Check the console.** The [Console](../using-chromatics/console.md) tab lists any startup errors first. Read them top-to-bottom - a missing runtime or a misbehaving vendor app usually announces itself loudly.
 
 ## Chromatics starts but nothing happens in-game
 
 **Is Chromatics running as administrator?**
 
-Chromatics needs admin rights to read FFXIV memory. If you dismissed the relaunch prompt earlier, restart Chromatics and accept it — or turn on **Settings → Advanced → Always relaunch Chromatics as Administrator**.
+Chromatics needs admin rights to read FFXIV memory. If you dismissed the relaunch prompt earlier, restart Chromatics and accept it - or turn on **Settings → Advanced → Always relaunch Chromatics as Administrator**.
 
 **Is the game connected?**
 
@@ -37,10 +37,10 @@ Check the Console tab. You should see a message indicating Chromatics has connec
 
 ## My device isn't detected
 
-1. **Make sure the vendor software is installed and running.** Razer Synapse, Corsair iCUE, Logitech G HUB, etc. must be active for Chromatics to connect to that vendor's SDK.
-2. **Make sure the provider is enabled.** Check **Settings → Device Providers** — the tile for your vendor should be turned on.
+1. **Make sure the vendor software is installed and running.** Razer Synapse, Corsair iCUE, Logitech G HUB, etc. need to be active for Chromatics to talk to that vendor's lighting.
+2. **Make sure the provider is enabled.** Check **Settings → Device Providers** - the tile for your vendor should be turned on.
 3. **Restart Chromatics.** Device changes in the Device Providers section take effect on restart.
-4. **Check the Console.** The Console will tell you whether a vendor SDK loaded successfully, and which devices were discovered.
+4. **Check the Console.** The Console will tell you which providers loaded and which devices it picked up.
 
 If your device still isn't detected, confirm it's supported by checking the [RGB.NET device list](https://github.com/DarthAffe/RGB.NET).
 
@@ -51,14 +51,14 @@ If your device still isn't detected, confirm it's supported by checking the [RGB
 3. **Try the other connection.** USB and Bluetooth are both supported, but if one isn't being recognised, swapping to the other is a quick way to rule out a stuck connection.
 4. **Check the Console.** Chromatics logs whether each controller was opened or rejected, and why.
 
-Your controller's input keeps working in games either way — Chromatics only writes to the lighting, never the input pipeline.
+Your controller's input keeps working in games either way - Chromatics only writes to the lighting, never the input pipeline.
 
 ## My LIFX devices aren't showing up
 
 1. **Same network?** Chromatics talks to LIFX over the **Local LAN protocol**, so your PC and your LIFX devices need to be on the same network. A common gotcha is bulbs being on a 2.4 GHz IoT VLAN that's isolated from the main network your PC sits on.
 2. **Re-run discovery.** Toggle LIFX off and on again in **Settings → Device Providers**. The picker dialog will run a fresh discovery sweep and you can hit **Search again** for another pass.
 3. **Power-cycle a stubborn device.** Some bulbs only re-broadcast on the network after a power cycle.
-4. **Pick at least one device.** If you save without ticking anything, Chromatics turns the LIFX toggle back off automatically — that's by design, not a bug.
+4. **Pick at least one device.** If you save without ticking anything, Chromatics turns the LIFX toggle back off automatically - that's by design, not a bug.
 
 If you disable LIFX in Settings or close the app, your devices return to the colour and on/off state they were in before Chromatics took over.
 
@@ -71,7 +71,7 @@ If you disable LIFX in Settings or close the app, your devices return to the col
 * The layer is enabled (the toggle in column **J**).
 * The layer type matches what you expect (column **I**).
 * The layer has keys assigned (the layer editor, columns **O**–**R**).
-* A higher-up layer isn't painting over it — toggle layers off one at a time to narrow it down.
+* A higher-up layer isn't painting over it - toggle layers off one at a time to narrow it down.
 
 **Restart if you changed providers.** If you enabled or disabled device providers recently, restart Chromatics for the change to take effect.
 
@@ -79,7 +79,7 @@ If you disable LIFX in Settings or close the app, your devices return to the col
 
 * It listens to the **Windows default audio output device**. Make sure that's the device playing FFXIV audio.
 * If you're using a voice chat app with an exclusive capture mode, switch it to a shared mode or use a different output.
-* Set a base layer to **Audio Visualizer (Beta)** on the device you want to use. Don't look for it in the Effects tab — it's a base layer, not an effect.
+* Set a base layer to **Audio Visualizer (Beta)** on the device you want to use. Don't look for it in the Effects tab - it's a base layer, not an effect.
 
 ## Screen Capture looks wrong or is black
 
@@ -88,7 +88,7 @@ If you disable LIFX in Settings or close the app, your devices return to the col
 
 ## My keyboard lights up in the wrong positions
 
-Chromatics defaults to a QWERTY layout. If yours is different, open **Settings → Appearance & Language → Keyboard Layout** and select **QWERTZ** or **AZERTY**. Existing mappings are remapped for you automatically.
+Chromatics defaults to a QWERTY layout. If yours is different, open **Settings → Appearance & Language → Keyboard Layout** and select **QWERTZ** or **AZERTY**. Chromatics remaps your existing layers for you automatically.
 
 ## Everything is too bright / too dim
 
@@ -96,11 +96,11 @@ Use the **Global Brightness** slider in **Settings → Appearance & Language** t
 
 ## I changed something and now everything is broken
 
-1. Try **Settings → Advanced → Reset Chromatics**. This clears your configuration and starts fresh — you'll go through the First Run wizard again.
+1. Try **Settings → Advanced → Reset Chromatics**. This clears your configuration and starts fresh - you'll go through the First Run wizard again.
 2. If you exported layer or palette files earlier, you can re-import them afterwards.
 
 {% hint style="warning" %}
-Resetting deletes your current layer and palette setup. If you might want them back, export them from the Mappings and Palette tabs first.
+Resetting deletes your current layer and palette setup. If you'd like to keep them, export them from the Mappings and Palette tabs first.
 {% endhint %}
 
 ## Collect logs before asking for help
@@ -113,6 +113,6 @@ When you report an issue, logs make everything faster.
 
 ## Where to get more help
 
-* **[Discord](https://discord.gg/sK47yFE)** — the fastest way to reach us and the community.
-* **[GitHub Issues](https://github.com/roxaskeyheart/Chromatics/issues)** — for reproducible bugs and feature requests.
-* **[FAQ](faq.md)** — answers to common questions.
+* **[Discord](https://discord.gg/sK47yFE)** - the fastest way to reach us and the community.
+* **[GitHub Issues](https://github.com/roxaskeyheart/Chromatics/issues)** - for reproducible bugs and feature requests.
+* **[FAQ](faq.md)** - answers to common questions.
