@@ -30,6 +30,10 @@ You can stack as many dynamic layers as you want, reorder them, and enable or di
 
 The **Effect Layer** sits at the very top of the stack and covers the whole device. Quick flashes — such as the Duty Finder Bell and Damage Flash — use this layer so they show above everything else. Like the base layer, each device has exactly one effect layer and it cannot be moved or removed.
 
+The **enable toggle** on the Effect Layer row is also a **per-device master switch for everything on the [Effects](effects.md) tab**. Turn it off for a device and that device stops playing raid effects, the duty-finder bell, the damage flash, the cutscene animation, vegas mode, the startup and title-screen animations, and any reactive-weather animation overlays. The base layer (static colours, job class colours, weather colour, screen capture) and your dynamic layers (HP, target, keybinds, etc.) keep running normally on that device.
+
+Useful when you want, say, raid effects roaring across your keyboard but not your light strips behind the monitor — turn the Effect Layer off on the strips and they'll keep painting your base colours during the fight.
+
 ## The Mappings screen
 
 <figure><img src="../.gitbook/assets/Chromatics4_MappingScreenLight1_notated.png" alt=""><figcaption></figcaption></figure>

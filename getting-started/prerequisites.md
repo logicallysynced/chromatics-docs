@@ -25,4 +25,4 @@ Chromatics 4 is built on .NET 10 and uses the latest Microsoft Visual C++ redist
 
 ## Supported devices
 
-Chromatics supports a wide range of RGB devices from Asus, Cooler Master, Corsair, Logitech, MSI, Novation, Razer, SteelSeries, Wooting, OpenRGB, and Philips Hue. See the [Introduction](../README.md#device-compatibility) or the [FAQ](../support/faq.md) for the full compatibility list.
+Chromatics supports a wide range of RGB devices from Asus, Cooler Master, Corsair, Logitech, MSI, Novation, Razer, SteelSeries, Wooting, OpenRGB, Philips Hue, PlayStation controllers (DS4 / DS5), and LIFX. See the [Introduction](../README.md#device-compatibility) or the [FAQ](../support/faq.md) for the full compatibility list.

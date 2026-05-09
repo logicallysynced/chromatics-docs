@@ -92,6 +92,8 @@ Supported providers:
 * Novation
 * OpenRGB
 * Philips Hue — requires a one-time bridge pairing.
+* PlayStation (Beta) — DualShock 4 and DualSense controllers.
+* LIFX (Beta) — runs a network discovery and asks you which devices to control.
 
 {% hint style="info" %}
 We recommend restarting Chromatics after enabling new device providers.
@@ -106,6 +108,42 @@ The first time you enable Philips Hue, Chromatics opens a small pairing dialog:
 3. Click **Submit** in the dialog within about 30 seconds.
 
 Chromatics remembers the pairing, so you won't be asked again unless your bridge's network details change.
+
+Hue motion is also smoothed for fast-changing effects (Vegas mode, cutscenes, certain weather animations) — Chromatics asks the bridge to interpolate between colour frames so bulbs without the Hue Play's hardware fade still get smoother transitions.
+
+### PlayStation controllers (Beta)
+
+Enabling **PlayStation** lets Chromatics drive the lightbar and the five player-indicator LEDs on **DualShock 4** and **DualSense** controllers. Both **USB** and **Bluetooth** connections are supported, and your controller's input still works normally in games while Chromatics is driving the lights — Chromatics only writes to the lighting, not the input pipeline.
+
+Once enabled, your connected controllers show up on the Mappings tab as standard devices, where you can assign layers to the lightbar and the player LEDs just like any other device.
+
+{% hint style="warning" %}
+If your controller is connected but Chromatics says it can't open it, another tool is probably holding it in **exclusive mode**. The usual culprits are **Steam Input**, **DS4Windows**, and **reWASD**. Close that tool (or disable its exclusive mode) before launching Chromatics.
+{% endhint %}
+
+### LIFX devices (Beta)
+
+Enabling **LIFX** runs a discovery sweep across your local network and opens a picker dialog so you can choose which devices Chromatics should control.
+
+Chromatics talks to LIFX devices using the **Local LAN protocol** — there is no LIFX cloud account, no internet round-trip, and no LIFX login required. Your bulbs just need to be on the same network as your PC.
+
+The picker shows every LIFX device it found:
+
+* Tick the ones you want Chromatics to control, then click **Save**.
+* Click **Search again** if you've just powered on a new device and want it picked up.
+* Click **Cancel** to back out without enabling LIFX.
+
+If no devices are discovered, or you save without picking any, the LIFX toggle automatically switches itself back off so you don't end up with an enabled-but-empty provider.
+
+You can re-open the picker any time by toggling LIFX off and on again from this section.
+
+**How LIFX devices appear in Chromatics:**
+
+* **Standard bulbs** — single zone, lit as one colour.
+* **Multi-zone strips** (Z, Beam, String, Neon) — addressable per zone, so effects like the HP bar or weather gradients spread across the strip.
+* **Matrix devices** (Tile, Candle Color) — mapped as a grid, so 2D effects like the Audio Visualizer and the Reactive Weather animations work on them too.
+
+When Chromatics releases control — you disable LIFX in Settings, or close the app — every device is restored to the colour and on/off state it was in before Chromatics took over. Your bedroom won't be left mid-strobe if you close Chromatics during Vegas mode.
 
 ## Advanced
 

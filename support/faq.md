@@ -65,8 +65,42 @@ Supported vendors:
 * Wooting
 * OpenRGB — any device exposed through an OpenRGB server
 * Philips Hue
+* PlayStation (Beta) — DualShock 4 and DualSense controllers
+* LIFX (Beta) — bulbs, multi-zone strips and matrix devices
 
 If you're unsure whether your specific device model is supported, see the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET) or ask in our [Discord](https://discord.gg/sK47yFE).
+
+</details>
+
+<details>
+
+<summary>Will Chromatics work with my DualShock 4 or DualSense controller?</summary>
+
+Yes — both are supported in Chromatics 4.1.27 and later as part of the **PlayStation (Beta)** provider. Chromatics drives the lightbar and the five player-indicator LEDs over **USB or Bluetooth**, and treats the controller as a regular device on the Mappings tab so you can assign layers to it.
+
+Your controller's input keeps working normally in games while Chromatics is driving the lights. Chromatics only writes to the lighting, never the input pipeline.
+
+If your controller doesn't show up, another tool (most often **Steam Input**, **DS4Windows**, or **reWASD**) is probably holding it in exclusive mode. See [Troubleshooting → My PlayStation controller isn't lighting up](troubleshooting.md#my-playstation-controller-isnt-lighting-up).
+
+</details>
+
+<details>
+
+<summary>Does Chromatics need a LIFX cloud account?</summary>
+
+No. Chromatics talks to your LIFX devices using the **Local LAN protocol** — everything happens on your local network with no internet round-trip. You don't need a LIFX cloud account, and you don't need to sign in to anything.
+
+You do need your LIFX devices and your PC to be on the same network. If you have your bulbs on an isolated IoT VLAN, Chromatics won't be able to find them.
+
+</details>
+
+<details>
+
+<summary>What happens to my LIFX bulbs when I close Chromatics?</summary>
+
+Chromatics records the colour and on/off state of every LIFX device the moment you start controlling it. When Chromatics releases the device — you disable LIFX in Settings, or close the app — each one is restored to that earlier state.
+
+Translation: if your bedside lamp was a warm 2700K white before Chromatics took over, it goes back to a warm 2700K white when you close the app, even if it was mid-strobe at the time.
 
 </details>
 

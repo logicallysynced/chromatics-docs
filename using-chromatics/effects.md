@@ -12,6 +12,10 @@ The **Effects** tab is a set of simple on/off switches for Chromatics' animated 
 
 Some effects paint across the entire device (the **base layer**), some interrupt your lighting with a brief flash (the **effect layer**). See [Mappings](mappings.md) and [Layer Types](ffxiv-functions.md) if that's new to you.
 
+{% hint style="info" %}
+Every effect on this tab can be silenced **per device** from the Mappings tab. Toggle the **Effect Layer enable** switch on a device and that device stops playing all of these effects, while still running its base and dynamic layers. See [Effect layer](mappings.md#effect-layer) on the Mappings page for the full list of what the toggle covers.
+{% endhint %}
+
 ## Available effects
 
 <table><thead><tr><th width="240">Effect</th><th>Description</th></tr></thead><tbody>

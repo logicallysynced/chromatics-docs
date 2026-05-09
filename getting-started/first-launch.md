@@ -25,11 +25,12 @@ Each tile represents a family of RGB hardware:
 * Wooting
 * Novation
 * OpenRGB
+* PlayStation (Beta) — DualShock 4 and DualSense controllers
 
 Tick every provider you actually own hardware for. You need to pick **at least one** to continue. If you're not sure, it's safe to tick all of them — Chromatics only talks to what's actually connected.
 
 {% hint style="info" %}
-**Philips Hue** is not in the Welcome wizard because it needs a one-time pairing step with your Hue bridge. You can turn it on later from **Settings → Device Providers**.
+**Philips Hue** and **LIFX** are not in the Welcome wizard because they need a network setup step (a bridge pairing for Hue, a device picker for LIFX). You can turn either of them on later from **Settings → Device Providers**.
 {% endhint %}
 
 When you're happy, click **Continue**. Chromatics will save your choices and open the main window.

@@ -44,6 +44,24 @@ Check the Console tab. You should see a message indicating Chromatics has connec
 
 If your device still isn't detected, confirm it's supported by checking the [RGB.NET device list](https://github.com/DarthAffe/RGB.NET).
 
+## My PlayStation controller isn't lighting up
+
+1. **Is PlayStation enabled?** Check **Settings → Device Providers → PlayStation (Beta)**. If you've just enabled it, restart Chromatics.
+2. **Is anything else holding the controller?** Tools like **Steam Input**, **DS4Windows**, and **reWASD** can claim the controller in **exclusive mode**. While they have the device, Chromatics can't open it. Close the other tool, or disable its exclusive mode, then restart Chromatics.
+3. **Try the other connection.** USB and Bluetooth are both supported, but if one isn't being recognised, swapping to the other is a quick way to rule out a stuck connection.
+4. **Check the Console.** Chromatics logs whether each controller was opened or rejected, and why.
+
+Your controller's input keeps working in games either way — Chromatics only writes to the lighting, never the input pipeline.
+
+## My LIFX devices aren't showing up
+
+1. **Same network?** Chromatics talks to LIFX over the **Local LAN protocol**, so your PC and your LIFX devices need to be on the same network. A common gotcha is bulbs being on a 2.4 GHz IoT VLAN that's isolated from the main network your PC sits on.
+2. **Re-run discovery.** Toggle LIFX off and on again in **Settings → Device Providers**. The picker dialog will run a fresh discovery sweep and you can hit **Search again** for another pass.
+3. **Power-cycle a stubborn device.** Some bulbs only re-broadcast on the network after a power cycle.
+4. **Pick at least one device.** If you save without ticking anything, Chromatics turns the LIFX toggle back off automatically — that's by design, not a bug.
+
+If you disable LIFX in Settings or close the app, your devices return to the colour and on/off state they were in before Chromatics took over.
+
 ## Effects aren't triggering
 
 **Is the effect enabled?** Open the [Effects](../using-chromatics/effects.md) tab and check the tile for the effect you're expecting.
