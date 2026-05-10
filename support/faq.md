@@ -106,6 +106,14 @@ Translation: if your bedside lamp was a warm 2700K white before Chromatics took 
 
 <details>
 
+<summary>What happens to my Hue bulbs when I close Chromatics?</summary>
+
+The same thing as LIFX. Chromatics records each bulb's colour and on/off state the moment it starts controlling it, and restores that state when it releases the bulb. "Releasing" covers three cases: disabling Hue in **Settings → Device Providers**, disabling an individual bulb on the **Mappings** tab, or closing the app.
+
+</details>
+
+<details>
+
 <summary>My device isn't supported. Can you add it?</summary>
 
 Chromatics relies on RGB.NET to do the vendor-specific work. If your device isn't supported there, it isn't supported in Chromatics either.

@@ -41,7 +41,7 @@ Useful when you want, say, raid effects roaring across your keyboard but not you
 <table><thead><tr><th width="95"></th><th></th></tr></thead><tbody>
 <tr><td><strong>A</strong></td><td><strong>Device Selection</strong><br>Choose which device you're editing. Every device has its own independent stack of layers.</td></tr>
 <tr><td><strong>B</strong></td><td><strong>Preview Layers</strong><br>Preview your current layer setup on the selected device without needing the game to be running.</td></tr>
-<tr><td><strong>C</strong></td><td><strong>Toggle Device</strong><br>Enable or disable lighting output to this device entirely.</td></tr>
+<tr><td><strong>C</strong></td><td><strong>Toggle Device</strong><br>Enable or disable lighting output to this device entirely. The setting persists across restarts. For Hue and LIFX bulbs, disabling here returns the bulb to the colour and on/off state it had before Chromatics took over.</td></tr>
 <tr><td><strong>D</strong></td><td><strong>Import Layers</strong><br>Load a layer file from your PC. This replaces your current layer setup for every device. Chromatics 3 files (<code>.chromatics3</code>) are also accepted.</td></tr>
 <tr><td><strong>E</strong></td><td><strong>Export Layers</strong><br>Save your current layer setup to a file so you can back it up or share it.</td></tr>
 <tr><td><strong>F</strong></td><td><strong>Add Layer</strong><br>Adds a new dynamic layer directly above the base layer. Base and Effect layers cannot be added - they already exist by default.</td></tr>

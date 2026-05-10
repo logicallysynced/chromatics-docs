@@ -91,7 +91,7 @@ Supported providers:
 * Wooting
 * Novation
 * OpenRGB
-* Philips Hue - requires a one-time bridge pairing.
+* Philips Hue - searches your network for bridges, pairs, then asks which bulbs to control.
 * PlayStation (Beta) - DualShock 4 and DualSense controllers.
 * LIFX (Beta) - runs a network discovery and asks you which devices to control.
 
@@ -99,17 +99,30 @@ Supported providers:
 We recommend restarting Chromatics after enabling new device providers.
 {% endhint %}
 
-### Philips Hue pairing
+### Philips Hue pairing and adoption
 
-The first time you enable Philips Hue, Chromatics opens a small pairing dialog:
+Enabling **Philips Hue** runs a three-step setup: pick a bridge, pair with it, and choose which bulbs Chromatics should control.
 
-1. Enter the IP address of your Hue bridge.
-2. Press the big round button on top of the bridge.
-3. Click **Submit** in the dialog within about 30 seconds.
+**Step 1 - Pick your bridge.**
 
-Chromatics remembers the pairing, so you won't be asked again unless your bridge's network details change.
+Chromatics scans your network and lists every Hue bridge it finds. Click **Use this bridge** next to the one you want. Don't see your bridge? Type its IP into the **Bridge IP** box instead.
 
-Hue motion is also smoothed for fast-changing effects (Vegas mode, cutscenes, certain weather animations) - Chromatics asks the bridge to interpolate between colour frames so bulbs without the Hue Play's hardware fade still get smoother transitions.
+**Step 2 - Pair.**
+
+1. Press the big round button on top of the Hue bridge.
+2. Click **Submit** in the dialog within about 30 seconds.
+
+**Step 3 - Pick your bulbs.**
+
+After pairing, the **Choose Hue lights** dialog lists every bulb on the bridge. Tick the ones you want Chromatics to control, then click **Save**.
+
+Chromatics remembers your bridge and adoption choices, so you won't be asked again unless your bridge's network details change. To change which bulbs are controlled, toggle Hue off and on in this section to re-open the picker.
+
+**Upgrading from an earlier build:** the first time you launch a Chromatics build with the picker, every bulb your bridge exposes is adopted automatically so your existing setup keeps working. From there you can deselect any bulb you don't want from the same dialog.
+
+When Chromatics releases control - you disable Hue in Settings, disable a bulb on the Mappings tab, or close the app - each bulb returns to the colour and on/off state it had before Chromatics took over. Same behaviour as LIFX.
+
+Hue motion is also smoothed for fast-changing effects (Vegas mode, cutscenes, certain weather animations). Chromatics asks the bridge to interpolate between colour frames so bulbs without the Hue Play's hardware fade still get smoother transitions.
 
 ### PlayStation controllers (Beta)
 

@@ -53,6 +53,20 @@ If your device still isn't detected, confirm it's supported by checking the [RGB
 
 Your controller's input keeps working in games either way - Chromatics only writes to the lighting, never the input pipeline.
 
+## My Hue bridge isn't being detected
+
+1. **Same network?** Auto-discovery uses Hue's discovery service to find bridges on your local network. Your PC and the bridge need to be on the same network for it to work.
+2. **Type the IP in by hand.** If auto-discovery doesn't find the bridge, the dialog has a manual entry field. Find the bridge's IP in the Hue app (Settings → My Hue System → tap your bridge) or your router's device list, and paste it in.
+3. **Press the button before clicking Submit.** Pairing only succeeds within about 30 seconds of pressing the button on top of the bridge. If you miss the window, click Submit again to retry.
+
+## A Hue bulb is missing from the adoption picker
+
+The picker lists every bulb the bridge currently exposes. If one's missing:
+
+* Make sure it's powered on at the wall switch.
+* Open the Hue app and confirm the bulb shows up there. If the bridge can't see it, Chromatics can't either.
+* Re-open the picker (toggle Hue off and on in **Settings → Device Providers**) so Chromatics queries the bridge again.
+
 ## My LIFX devices aren't showing up
 
 1. **Same network?** Chromatics talks to LIFX over the **Local LAN protocol**, so your PC and your LIFX devices need to be on the same network. A common gotcha is bulbs being on a 2.4 GHz IoT VLAN that's isolated from the main network your PC sits on.
