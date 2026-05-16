@@ -97,6 +97,7 @@ Supported providers:
 * QMK Keyboards (Beta) - custom keyboards running QMK firmware with Raw HID enabled.
 * Yeelight (Beta) - Yeelight bulbs, light strips, and lamps over the local LAN.
 * Alienware (Beta) - AlienFX hardware on Alienware and Dell G-series machines.
+* Dynamic Lighting (Beta) - any Razer / Logitech G LIGHTSYNC / ASUS ROG / HyperX / MSI / SteelSeries / HP / Omen device the OS exposes via the Windows Dynamic Lighting standard.
 
 {% hint style="info" %}
 We recommend restarting Chromatics after enabling new device providers.
@@ -202,6 +203,24 @@ Chromatics talks to AlienFX hardware directly via HID. There's no Dell driver to
 {% endhint %}
 
 **Per-key keymaps:** Alienware doesn't publish a per-board key-index map for AW510K / AW920K-class boards. Chromatics ships a default ANSI 104 layout that matches most matrix-scan orders, but the firmware on your specific keyboard may enumerate keys in a different order. If your effects light the wrong physical keys, drag them into position via the [Mappings](mappings.md) tab. The mapping persists across restarts.
+
+### Windows Dynamic Lighting (Beta)
+
+Enabling **Dynamic Lighting** picks up any device the OS lists in **Settings → Personalization → Dynamic Lighting**. Microsoft's Dynamic Lighting standard is a cross-vendor HID protocol that's gradually replacing per-vendor RGB SDKs, with confirmed support from Razer (BlackWidow / Huntsman / DeathAdder families), Logitech G LIGHTSYNC, ASUS ROG, HyperX, MSI, SteelSeries, and HP / Omen.
+
+There's no setup dialog or adoption picker - the OS already enumerates compatible devices for you, so Chromatics just adopts whatever is showing up under the Dynamic Lighting Settings page.
+
+{% hint style="warning" %}
+**Phase 1 is foreground-only.** While Chromatics has focus, lighting works. The moment another window (FFXIV) takes focus, Windows silently rejects further writes from Chromatics. A follow-up patch ships a sparse signed package that gives Chromatics package identity and unlocks background writes during gameplay.
+{% endhint %}
+
+**Conflict handling.** If you have a Razer keyboard that's already controlled by the Chromatics Razer provider AND it shows up under Dynamic Lighting, both providers would otherwise race for the device every frame and the lighting would flicker. Chromatics handles this automatically:
+
+* The existing **vendor SDK takes priority on overlapping devices**. Razer / Logitech / ASUS / MSI / SteelSeries devices stay with their dedicated provider.
+* Dynamic Lighting **silently skips** the duplicates and only adopts devices that aren't already covered by an enabled vendor provider.
+* Enabling Dynamic Lighting (or enabling a vendor provider while Dynamic Lighting is on) shows a one-shot popup naming the conflict so you know what just happened.
+
+To switch a specific device away from its vendor SDK and onto Dynamic Lighting, disable the corresponding vendor provider in this section. (A per-device override in the Mappings tab is on the roadmap.)
 
 ### QMK Keyboards (Beta)
 
