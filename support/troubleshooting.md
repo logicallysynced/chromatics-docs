@@ -76,6 +76,34 @@ The picker lists every bulb the bridge currently exposes. If one's missing:
 
 If you disable LIFX in Settings or close the app, your devices return to the colour and on/off state they were in before Chromatics took over.
 
+## My Yeelight devices aren't showing up
+
+1. **Turn on LAN Control in the Yeelight app.** This is the most common reason Chromatics finds nothing. Open the **Yeelight** or **Mi Home** app, tap each bulb you want to control, and switch on **LAN Control** in its settings. Bulbs without LAN Control don't respond to discovery.
+2. **Check the network.** Chromatics sends an SSDP discovery packet to **239.255.255.250 on UDP port 1982**. If your router puts IoT devices on a separate VLAN that blocks multicast back to your PC, Chromatics won't see anything. Either move the bulbs onto the same network as your PC or allow multicast UDP on port 1982 between the segments.
+3. **Re-run discovery.** Toggle Yeelight off and on again in **Settings → Device Providers**. The picker dialog runs a fresh sweep and you can click **Search again** for another pass without leaving the dialog.
+4. **Pick at least one device.** If you save without ticking anything, Chromatics turns the Yeelight toggle back off automatically. That's by design, not a bug.
+
+If a bulb supports **Music Mode**, Chromatics enables it on the first paint frame. Music Mode opens a TCP connection from the bulb back to Chromatics so colour updates aren't capped at 60 commands per minute. If you see `Music Mode handshake failed` in the [Console](../using-chromatics/console.md), check that no firewall on your PC is blocking inbound TCP from the bulb's IP. Chromatics falls back to the slower outbound channel automatically when Music Mode can't be set up.
+
+Light strips paint as a single colour. The Yeelight LAN protocol doesn't expose per-zone addressing on its strip products, even on hardware that physically supports it (Lightstrip Plus and similar).
+
+## My Alienware lighting isn't responding
+
+1. **Quit Alienware Command Center first.** AWCC holds the AlienFX HID interface exclusively. While it's running, Chromatics can't open your AlienFX hardware. Right-click the AWCC icon in the system tray and choose **Exit**, then re-enable the Alienware provider in **Settings → Device Providers**. The Console will tell you specifically when AWCC is the blocker.
+2. **Check what hardware Chromatics detected.** Three flavours of AlienFX hardware are supported: zone-based chassis (Aurora R7-R14 desktops, m15 / m17 / x15 / x17 zone laptops, Dell G7/G5), per-key notebook keyboards (Area51m-R2, m15R3 onwards, m17R3), and per-key external keyboards (AW510K, AW920K, AW768, AW410K). The Console logs which dialect Chromatics picked for each device on enable.
+3. **Per-key keyboards may light the wrong physical keys.** Alienware doesn't publish a per-board key-index map for AW510K / AW920K-class boards. Chromatics ships a default ANSI 104 layout that matches most matrix-scan orders, but the firmware on your specific keyboard may enumerate keys in a different order. Open the [Mappings](../using-chromatics/mappings.md) tab and drag the keys into their correct physical positions. The mapping persists across restarts.
+4. **Other AlienFX tools may be holding the device.** AlienFX Tools (T-Troll), the legacy AlienFX Editor, and any third-party AlienFX scripting tools all open the same HID interface exclusively. Close any of them before enabling the Chromatics provider.
+
+## My Logitech keyboard or mouse isn't lighting correctly through G HUB
+
+Logitech G HUB ships with two features that quietly hijack RGB control away from third-party apps. Both need to be turned off for Chromatics to drive your devices reliably.
+
+1. **Disable the G HUB FFXIV game integration.** G HUB ships its own FINAL FANTASY XIV profile that takes over the keyboard whenever the game is detected. Open **G HUB**, click the gear icon (top-right) → **Settings** → **Games & Applications**, find **FINAL FANTASY XIV** in the list, and either delete the integration or turn it off. While it's enabled, G HUB intermittently overrides Chromatics' colours with its own profile.
+2. **Disable Lightsync Windows Settings.** G HUB applies a Windows-wide accent-colour synchronisation by default that can also fight Chromatics for control. In **G HUB → Settings → Lightsync**, turn off **Sync with Windows accent colour** (and any other Windows-driven Lightsync option) for every device.
+3. **Restart G HUB and Chromatics** after either change. G HUB's lighting service caches profiles and won't release them until it's restarted.
+
+You should leave G HUB itself running. Chromatics talks to your Logitech devices through G HUB's SDK; if G HUB isn't running, Logitech devices won't be detected at all.
+
 ## Effects aren't triggering
 
 **Is the effect enabled?** Open the [Effects](../using-chromatics/effects.md) tab and check the tile for the effect you're expecting.

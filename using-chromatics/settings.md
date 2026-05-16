@@ -92,8 +92,11 @@ Supported providers:
 * Novation
 * OpenRGB
 * Philips Hue - searches your network for bridges, pairs, then asks which bulbs to control.
-* PlayStation (Beta) - DualShock 4 and DualSense controllers.
-* LIFX (Beta) - runs a network discovery and asks you which devices to control.
+* PlayStation - DualShock 4 and DualSense controllers.
+* LIFX - runs a network discovery and asks you which devices to control.
+* QMK Keyboards (Beta) - custom keyboards running QMK firmware with Raw HID enabled.
+* Yeelight (Beta) - Yeelight bulbs, light strips, and lamps over the local LAN.
+* Alienware (Beta) - AlienFX hardware on Alienware and Dell G-series machines.
 
 {% hint style="info" %}
 We recommend restarting Chromatics after enabling new device providers.
@@ -124,7 +127,7 @@ When Chromatics releases control - you disable Hue in Settings, disable a bulb o
 
 Hue motion is also smoothed for fast-changing effects (Vegas mode, cutscenes, certain weather animations). Chromatics asks the bridge to interpolate between colour frames so bulbs without the Hue Play's hardware fade still get smoother transitions.
 
-### PlayStation controllers (Beta)
+### PlayStation controllers
 
 Enabling **PlayStation** lets Chromatics drive the lightbar and the five player-indicator LEDs on **DualShock 4** and **DualSense** controllers. Both **USB** and **Bluetooth** connections are supported, and your controller's input still works normally in games while Chromatics is driving the lights - Chromatics only writes to the lighting, not the input pipeline.
 
@@ -134,7 +137,7 @@ Once enabled, your connected controllers show up on the Mappings tab as standard
 If your controller is connected but Chromatics says it can't open it, another tool is probably holding it in **exclusive mode**. The usual culprits are **Steam Input**, **DS4Windows**, and **reWASD**. Close that tool (or disable its exclusive mode) before launching Chromatics.
 {% endhint %}
 
-### LIFX devices (Beta)
+### LIFX devices
 
 Enabling **LIFX** runs a discovery sweep across your local network and opens a picker dialog so you can choose which devices Chromatics should control.
 
@@ -157,6 +160,63 @@ You can re-open the picker any time by toggling LIFX off and on again from this 
 * **Matrix devices** (Tile, Candle Color) - mapped as a grid, so 2D effects like the Audio Visualizer and the Reactive Weather animations work on them too.
 
 When Chromatics releases control - you disable LIFX in Settings, or close the app - every device is restored to the colour and on/off state it was in before Chromatics took over. Your bedroom won't be left mid-strobe if you close Chromatics during Vegas mode.
+
+### Yeelight devices (Beta)
+
+Enabling **Yeelight** runs an SSDP discovery sweep and opens a picker dialog so you can choose which bulbs Chromatics should control. Same UX as the LIFX picker.
+
+Chromatics talks to Yeelight devices over the **Yeelight LAN protocol** - no Yeelight cloud account, no third-party DLLs, no proxy software. The protocol is open and documented by Yeelight directly.
+
+{% hint style="warning" %}
+Each bulb you want Chromatics to control needs **LAN Control** enabled in the **Yeelight** or **Mi Home** app. Open the app, tap a bulb, and switch on **LAN Control** in its settings. Bulbs without LAN Control enabled won't appear in the picker.
+{% endhint %}
+
+The picker shows every Yeelight device it found:
+
+* Tick the ones you want Chromatics to control, then click **Save**.
+* Click **Search again** if you've just powered on a new device and want it picked up.
+* Click **Cancel** to back out without enabling Yeelight.
+
+If no devices are discovered, or you save without picking any, the Yeelight toggle automatically switches itself back off.
+
+**How Yeelight devices appear in Chromatics:**
+
+* **Bulbs and lamps** - lit as one colour. Includes Color, White, and tunable-white bulb families.
+* **Bedside Lamp 2** and other dual-element lamps - exposed as two LEDs (main and background) so you can map them independently.
+* **Light strips** (Lightstrip Plus and similar) - lit as one colour. The Yeelight LAN protocol doesn't expose per-zone addressing on its strips, even on hardware that physically supports it.
+
+**Music Mode** is enabled automatically on every bulb that supports it. Music Mode opens a TCP connection from the bulb back to Chromatics, which removes the bulb's normal cap of 60 commands per minute and lets fast-changing effects (Vegas mode, weather animations) track in real time. If your firewall blocks inbound TCP from the bulb, Chromatics falls back to the slower outbound channel automatically.
+
+### Alienware AlienFX (Beta)
+
+Enabling **Alienware** discovers AlienFX hardware on the HID bus and adopts every device it finds. Covers three families:
+
+* **Zone-based chassis** - Aurora R7-R14 desktops, m15 / m17 / x15 / x17 zone laptops, Dell G7 / G5 / G5SE.
+* **Per-key notebook keyboards** - Area51m-R2, x17R2, m15R3 onwards, m17R3, and other m-series notebooks.
+* **Per-key external keyboards** - AW510K, AW920K, AW768, AW410K.
+
+Chromatics talks to AlienFX hardware directly via HID. There's no Dell driver to install, no Alienware Command Center dependency, and no precompiled bridge DLL.
+
+{% hint style="warning" %}
+**Quit Alienware Command Center first.** AWCC holds the AlienFX HID interface exclusively. While it's running, Chromatics can't open your AlienFX hardware. Right-click the AWCC icon in the system tray and choose **Exit** before enabling the Chromatics provider. The Console will tell you specifically when AWCC is the blocker.
+{% endhint %}
+
+**Per-key keymaps:** Alienware doesn't publish a per-board key-index map for AW510K / AW920K-class boards. Chromatics ships a default ANSI 104 layout that matches most matrix-scan orders, but the firmware on your specific keyboard may enumerate keys in a different order. If your effects light the wrong physical keys, drag them into position via the [Mappings](mappings.md) tab. The mapping persists across restarts.
+
+### QMK Keyboards (Beta)
+
+Enabling **QMK Keyboards** scans the USB bus for keyboards running QMK firmware with Raw HID enabled and adopts every compatible board it finds. Covers custom keyboards from NovelKeys, KBDFans, Drop, GMMK, Glorious, and any other brand running QMK.
+
+Chromatics drives QMK boards through one of two protocols, picked per board:
+
+* **OpenRGB-QMK plugin** - if your firmware has the OpenRGB plugin compiled in, Chromatics gets full per-key control via direct mode.
+* **VIA** - the universal fallback. Chromatics controls the firmware's built-in RGB matrix base colour and effect mode through VIA's configuration commands.
+
+A pre-built key layout database covering 2650 QMK boards ships with Chromatics, so the Highlight and Keybind layers map to the correct physical keys without manual setup. Boards without a known layout fall back to Custom1..N - position them via the Mappings tab.
+
+{% hint style="warning" %}
+**Close VIA, Vial, or OpenRGB before enabling.** All three open the Raw HID interface exclusively while they're running. Chromatics can't share the interface with them.
+{% endhint %}
 
 ## Advanced
 
