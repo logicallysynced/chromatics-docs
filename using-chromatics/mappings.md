@@ -70,6 +70,24 @@ Useful when you want, say, raid effects roaring across your keyboard but not you
 <tr><td><strong>X</strong></td><td><strong>Enable Bleeding</strong><br>Controls what happens when the layer has nothing to display. With bleeding <em>off</em>, empty areas are filled with the layer's negative colour (usually black). With bleeding <em>on</em>, empty areas become transparent so the layer below shows through. See <a href="#layer-bleeding">Layer bleeding</a> below.</td></tr>
 </tbody></table>
 
+## Copying layers between devices
+
+If you have multiple devices and want them to share the same setup (an HP layer on every keyboard you own, for example), you can copy every layer from one device onto another without rebuilding it by hand. Look for the small **copy** icon next to the brightness button in the bottom-right of the virtual device preview.
+
+Click it to open the **Copy layers between devices** dialog:
+
+* Pick the **source device** (defaults to the one you currently have selected in the Mappings tab).
+* Pick a **destination device**.
+* The dialog computes a default LED-to-LED mapping and shows it in a scrollable list, with the source LED on the left and the destination LED on the right. Override any row by picking a different destination LED from its dropdown.
+* Click **Copy layers** to duplicate every layer from the source onto the destination. Original layers on the source are left untouched.
+
+**Cross-device rules:**
+
+* **Keyboards can only copy to other keyboards.** Chromatics uses a consistent keyboard layout across vendors, so an Esc key on a Razer board lands on the Esc key of a Logitech, Alienware, or Dynamic Lighting board automatically — no manual remapping needed for the standard ANSI 104.
+* **Everything else can cross device types.** You can copy a mouse setup onto a headset, a chassis onto a strip, etc. The default mapping matches LEDs by their ID where the destination has an exact match, and falls back to positional index match otherwise. Use the per-row override dropdown to nudge any LED that didn't land where you wanted.
+
+Any source LED that has no matching destination LED is shown without a destination dropdown selection. Those LEDs are skipped on copy — the summary line above the buttons tells you how many will be dropped before you confirm.
+
 ## Layer bleeding
 
 Most layers don't have something to show at every moment. An HP bar, for example, only lights up the keys that represent your current HP - the rest would normally be dark.

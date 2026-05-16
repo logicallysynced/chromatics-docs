@@ -96,25 +96,20 @@ Light strips paint as a single colour. The Yeelight LAN protocol doesn't expose 
 
 ## My Windows Dynamic Lighting devices aren't showing up
 
-1. **Turn Dynamic Lighting on in Windows Settings.** Open **Settings → Personalization → Dynamic Lighting** and confirm the master toggle is on. Compatible devices appear in the device list on that page; if a device isn't listed there, the OS doesn't see it as Dynamic-Lighting-capable and Chromatics can't pick it up either.
+1. **Turn Dynamic Lighting on in Windows Settings.** Open **Settings → Personalization → Dynamic Lighting** and confirm the master toggle is on. Compatible devices appear in the device list on that page; if a device isn't listed there, Windows doesn't see it as Dynamic-Lighting-capable and Chromatics can't pick it up either.
 2. **Update Windows.** Windows Dynamic Lighting needs Windows 11 23H2 or later. Earlier builds either don't expose the LampArray API at all or expose a stub that returns no devices.
 3. **Update device firmware.** Some OEMs shipped Dynamic Lighting support via firmware updates rather than out-of-the-box. If your Razer / Logitech / ASUS / etc. device works in its vendor app but isn't listed in Windows' Dynamic Lighting page, check the vendor's site for a firmware update.
-4. **Check the Chromatics Console.** When the Dynamic Lighting provider enumerates devices, it logs each adopted device by name. It also logs every device it skipped (and why) - usually that's the auto-deduplication kicking in for a device already owned by an enabled vendor provider.
+4. **Check the Chromatics Console.** When the Dynamic Lighting provider enumerates devices, it logs each adopted device by name. It also logs every device it skipped (and why) — usually because the conservative conflict-handling in **Settings → Advanced** is on and a vendor provider already owns that device.
 
 ## My Razer / Logitech device shows under Dynamic Lighting in Windows but not in Chromatics
 
-That's by design. When both the Chromatics Dynamic Lighting provider AND the device's dedicated vendor provider (Razer, Logitech, ASUS, MSI, SteelSeries) are enabled, the **vendor SDK wins** and Dynamic Lighting silently skips the duplicate. Without this, the two providers would race on the same physical device every frame and the lighting would flicker.
+Open **Settings → Advanced** and check the **Allow Dynamic Lighting to control devices already covered by another Chromatics provider** toggle. When it's off (the conservative mode), Chromatics deliberately hides Dynamic Lighting entries for any device whose vendor provider (Razer, Logitech, ASUS, MSI, SteelSeries) is enabled, so the two providers don't fight for the same hardware. Turn the toggle back on if you want Dynamic Lighting to also adopt those devices.
 
-To switch the device from its vendor SDK to Dynamic Lighting, disable the corresponding vendor provider in **Settings → Device Providers**. (A per-device override in the Mappings tab is on the roadmap.)
+If you'd rather Dynamic Lighting take exclusive control of a specific device, disable that device's vendor provider in **Settings → Device Providers** instead.
 
-## Dynamic Lighting works in Chromatics but my keyboard goes dark when I open FFXIV
+## Dynamic Lighting devices flicker when both the vendor provider and Dynamic Lighting are enabled
 
-That's the current limitation of the Dynamic Lighting Beta. Windows' Dynamic Lighting API requires apps to register a sparse signed package to be allowed background lighting writes. Without it, the OS only accepts writes from whichever app currently has foreground focus - so the moment FFXIV takes focus, Chromatics' Dynamic Lighting writes are silently rejected.
-
-A follow-up Chromatics patch adds the sparse signed package so background writes are accepted during gameplay. Until then:
-
-* For devices covered by a Chromatics vendor provider (Razer, Logitech, ASUS, MSI, SteelSeries), enable the vendor provider instead and disable Dynamic Lighting for that device. Vendor providers don't have the foreground/background gate.
-* For devices ONLY covered by Dynamic Lighting (HyperX, HP / Omen, some MSI products), Chromatics' lighting is currently limited to "while Chromatics has focus" until the patch lands.
+This means both providers are writing to the same physical device every frame. Open **Settings → Advanced**, turn off **Allow Dynamic Lighting to control devices already covered by another Chromatics provider**, then restart Chromatics. Dynamic Lighting will silently skip overlapping devices and the vendor SDK retains exclusive control of them.
 
 ## My Logitech keyboard or mouse isn't lighting correctly through G HUB
 
