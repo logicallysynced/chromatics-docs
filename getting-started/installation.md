@@ -12,7 +12,7 @@ Chromatics 4 is available in two flavours. Both download from the same place - p
 * **Installer** - the recommended option for most people. Sets everything up automatically and handles updates in the background.
 * **Portable (ZIP)** - a self-contained copy you can run from any folder. Useful if you want to keep Chromatics on a USB drive or don't want anything installed to Program Files.
 
-You can download the latest version from [GitHub](https://github.com/roxaskeyheart/Chromatics/releases/latest).
+You can download the latest version from [GitHub](https://github.com/logicallysynced/Chromatics/releases/latest).
 
 ## Installer version
 

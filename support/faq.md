@@ -14,7 +14,7 @@ Quick answers to the questions we hear most often. If you don't see yours here, 
 
 <summary>Is Chromatics free?</summary>
 
-Yes. Chromatics is free and open source under the [MIT License](../license.md). You can download it from the [official site](https://chromaticsffxiv.com) or from [GitHub](https://github.com/roxaskeyheart/Chromatics).
+Yes. Chromatics is free and open source under the [MIT License](../license.md). You can download it from the [official site](https://chromaticsffxiv.com) or from [GitHub](https://github.com/logicallysynced/Chromatics).
 
 </details>
 
@@ -224,6 +224,8 @@ Copy your `%AppData%\Chromatics\` folder from the old PC to the same location on
 
 ## Privacy
 
+For the full picture, see the [Privacy Policy](../privacy.md).
+
 <details>
 
 <summary>What data does Chromatics collect?</summary>
@@ -248,7 +250,7 @@ Open **Settings → Advanced** and turn off **Send anonymous performance and err
 
 <summary>I found a bug. How do I report it?</summary>
 
-Please file it on our [GitHub issues page](https://github.com/roxaskeyheart/Chromatics/issues) or share it in our [Discord](https://discord.gg/sK47yFE). When reporting, include your Chromatics version, your devices, and a ZIP from **Settings → Advanced → Collect Logs** if you can - it makes diagnosis much faster.
+Please file it on our [GitHub issues page](https://github.com/logicallysynced/Chromatics/issues) or share it in our [Discord](https://discord.gg/sK47yFE). When reporting, include your Chromatics version, your devices, and a ZIP from **Settings → Advanced → Collect Logs** if you can - it makes diagnosis much faster.
 
 </details>
 
@@ -256,7 +258,7 @@ Please file it on our [GitHub issues page](https://github.com/roxaskeyheart/Chro
 
 <summary>Can you add this feature?</summary>
 
-We love feature suggestions! The best places are our [GitHub](https://github.com/roxaskeyheart/Chromatics/issues) or [Discord](https://discord.gg/sK47yFE). Please search first to see if someone has already suggested it - we keep an eye on community requests.
+We love feature suggestions! The best places are our [GitHub](https://github.com/logicallysynced/Chromatics/issues) or [Discord](https://discord.gg/sK47yFE). Please search first to see if someone has already suggested it - we keep an eye on community requests.
 
 </details>
 

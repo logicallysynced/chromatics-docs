@@ -255,7 +255,7 @@ Resetting deletes your current layer and palette setup. If you'd like to keep th
 When you report an issue, logs make everything faster.
 
 1. **Settings → Advanced → Collect Logs** bundles the console log, your configuration files, and basic system info into a single ZIP.
-2. Share the ZIP on Discord or attach it to a [GitHub issue](https://github.com/roxaskeyheart/Chromatics/issues).
+2. Share the ZIP on Discord or attach it to a [GitHub issue](https://github.com/logicallysynced/Chromatics/issues).
 3. Include a short description of what you did and what happened.
 
 </details>
@@ -265,7 +265,7 @@ When you report an issue, logs make everything faster.
 <summary>Where to get more help</summary>
 
 * **[Discord](https://discord.gg/sK47yFE)** - the fastest way to reach us and the community.
-* **[GitHub Issues](https://github.com/roxaskeyheart/Chromatics/issues)** - for reproducible bugs and feature requests.
+* **[GitHub Issues](https://github.com/logicallysynced/Chromatics/issues)** - for reproducible bugs and feature requests.
 * **[FAQ](faq.md)** - answers to common questions.
 
 </details>

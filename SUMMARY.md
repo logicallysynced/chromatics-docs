@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [License](license.md)
+* [Privacy Policy](privacy.md)
 
 ## Getting Started
 
@@ -24,6 +25,6 @@
 
 * [FAQ](support/faq.md)
 * [Troubleshooting](support/troubleshooting.md)
-* [Github](https://github.com/roxaskeyheart/Chromatics)
+* [Github](https://github.com/logicallysynced/Chromatics)
 * [Discord](https://discord.gg/sK47yFE)
 * [Share your layouts & palettes](https://discord.gg/A7nXaGAK7k)
