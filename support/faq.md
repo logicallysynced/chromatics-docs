@@ -64,9 +64,13 @@ Supported vendors:
 * SteelSeries
 * Wooting
 * OpenRGB - any device exposed through an OpenRGB server
-* Philips Hue
-* PlayStation (Beta) - DualShock 4 and DualSense controllers
-* LIFX (Beta) - bulbs, multi-zone strips and matrix devices
+* Philips Hue - bridges and compatible bulbs
+* PlayStation - DualShock 4 and DualSense controllers
+* LIFX - bulbs, multi-zone strips, and matrix devices
+* QMK Keyboards (Beta) - custom keyboards running QMK firmware with Raw HID enabled
+* Yeelight (Beta) - bulbs, light strips, and lamps over the local LAN
+* Alienware (Beta) - AlienFX hardware on Alienware and Dell G-series machines
+* Dynamic Lighting (Beta) - any device Windows exposes via the Dynamic Lighting standard (Razer, Logitech G LIGHTSYNC, ASUS ROG, HyperX, MSI, SteelSeries, HP, Omen)
 
 If you're unsure whether your specific device model is supported, see the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET) or ask in our [Discord](https://discord.gg/sK47yFE).
 
@@ -76,7 +80,7 @@ If you're unsure whether your specific device model is supported, see the [RGB.N
 
 <summary>Will Chromatics work with my DualShock 4 or DualSense controller?</summary>
 
-Yes - both are supported in Chromatics 4.1.27 and later as part of the **PlayStation (Beta)** provider. Chromatics drives the lightbar and the five player-indicator LEDs over **USB or Bluetooth**, and treats the controller as a regular device on the Mappings tab so you can assign layers to it.
+Yes. Both are supported as part of the **PlayStation** provider. Chromatics drives the lightbar and the five player-indicator LEDs over **USB or Bluetooth**, and treats the controller as a regular device on the Mappings tab so you can assign layers to it.
 
 Your controller's input keeps working normally in games while Chromatics is driving the lights. Chromatics only writes to the lighting, never the input pipeline.
 

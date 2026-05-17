@@ -83,10 +83,10 @@ Click it to open the **Copy layers between devices** dialog:
 
 **Cross-device rules:**
 
-* **Keyboards can only copy to other keyboards.** Chromatics uses a consistent keyboard layout across vendors, so an Esc key on a Razer board lands on the Esc key of a Logitech, Alienware, or Dynamic Lighting board automatically — no manual remapping needed for the standard ANSI 104.
+* **Keyboards can only copy to other keyboards.** Chromatics uses a consistent keyboard layout across vendors, so an Esc key on a Razer board lands on the Esc key of a Logitech, Alienware, or Dynamic Lighting board automatically - no manual remapping needed for the standard ANSI 104.
 * **Everything else can cross device types.** You can copy a mouse setup onto a headset, a chassis onto a strip, etc. The default mapping matches LEDs by their ID where the destination has an exact match, and falls back to positional index match otherwise. Use the per-row override dropdown to nudge any LED that didn't land where you wanted.
 
-Any source LED that has no matching destination LED is shown without a destination dropdown selection. Those LEDs are skipped on copy — the summary line above the buttons tells you how many will be dropped before you confirm.
+Any source LED that has no matching destination LED is shown without a destination dropdown selection. Those LEDs are skipped on copy - the summary line above the buttons tells you how many will be dropped before you confirm.
 
 ## Layer bleeding
 
