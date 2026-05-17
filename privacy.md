@@ -59,9 +59,9 @@ A submitted crash report contains:
 * The Chromatics version, your OS version, and your .NET runtime version.
 * Any comment you typed yourself.
 
-### What Chromatics never sends
+### What automatic telemetry never sends
 
-We've gone out of our way to make sure none of the following ever leaves your PC, in either telemetry path:
+We've gone out of our way to make sure none of the following ever leaves your PC through automatic telemetry (background or crash):
 
 * Your name, email address, or any other personally identifying information. The crash dialog asks only for an optional free-text comment.
 * Your FFXIV character name, server, free company, or any account information.
@@ -69,6 +69,19 @@ We've gone out of our way to make sure none of the following ever leaves your PC
 * The contents of your screen, your keystrokes, or any input.
 * File paths or settings outside of what's directly relevant to a crash.
 * Your Hue bridge keys, LIFX or Yeelight device IDs, or any device credentials.
+
+## Diagnostic log bundles you choose to share
+
+**Settings → Advanced → Collect Logs** packages a diagnostic bundle into a ZIP at a location you pick. **Chromatics never uploads or sends this ZIP automatically.** You decide where it goes and who (if anyone) to share it with - usually our Discord or a GitHub issue when you're reporting a bug.
+
+The ZIP contains everything we need to reproduce most problems:
+
+* `console.log` - the full text of your current Console tab.
+* `verbose.log` (and `verbose.log.old` if present) - the rotating verbose log from `%AppData%\Chromatics\`.
+* `system-info.txt` - capture timestamp, Chromatics version, your OS version and .NET runtime version, the process architecture, the install kind (Installer or Portable), the install / config folder paths, and your **Windows machine name** and **Windows username**.
+* `config/` - copies of all your `*.chromatics4` files (and any legacy `*.chromatics3` files): `layers`, `palette`, `effects`, and `settings`. The `settings` file contains any **Philips Hue bridge IP and bridge key**, plus your **LIFX and Yeelight adopted-device lists** (MAC addresses, IPs, and labels).
+
+Because the bundle includes your machine and username and any Hue bridge key, take a quick look before sharing if any of those details concern you. The ZIP is a plain archive - you can open it with any unzip tool to inspect or remove files before passing it on. The same data otherwise stays on your PC; Chromatics never sends it anywhere on its own.
 
 ## Controlling your data
 

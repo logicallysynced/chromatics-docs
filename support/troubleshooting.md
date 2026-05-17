@@ -254,7 +254,7 @@ Resetting deletes your current layer and palette setup. If you'd like to keep th
 
 When you report an issue, logs make everything faster.
 
-1. **Settings → Advanced → Collect Logs** bundles the console log, your configuration files, and basic system info into a single ZIP.
+1. **Settings → Advanced → Collect Logs** bundles your diagnostic data into a single ZIP at a location you pick. The bundle includes the Console output, your config files, and a short system-info text file. See [Privacy Policy → Diagnostic log bundles](../privacy.md#diagnostic-log-bundles-you-choose-to-share) for the full list and a note on what's worth reviewing before you share.
 2. Share the ZIP on Discord or attach it to a [GitHub issue](https://github.com/logicallysynced/Chromatics/issues).
 3. Include a short description of what you did and what happened.
 

@@ -263,7 +263,15 @@ Resets Chromatics back to defaults. All of your config files in `%AppData%\Chrom
 
 ### Collect Logs
 
-Bundles the console log, your config files, and some basic system info into a single ZIP in a location of your choosing. Attach this ZIP when asking for support on Discord or GitHub - it gives us everything we need to help.
+Bundles your diagnostic data into a single ZIP at a location of your choosing. Attach this ZIP when asking for support on Discord or GitHub - it gives us everything we need to help.
+
+The ZIP contains:
+
+* The current Console tab as `console.log`, plus the rotating `verbose.log` from `%AppData%\Chromatics\`.
+* `system-info.txt` - Chromatics version, OS, .NET runtime, architecture, install kind, install / config folder paths, your Windows machine name, and your Windows username.
+* A `config/` folder with copies of your `layers`, `palette`, `effects`, and `settings` `.chromatics4` files (plus any legacy `.chromatics3` files).
+
+The `settings.chromatics4` file includes any Philips Hue bridge IP and bridge key, and your LIFX and Yeelight adopted-device lists. Chromatics never sends this ZIP automatically; you choose where to save it and who to share it with. See the [Privacy Policy](../privacy.md#diagnostic-log-bundles-you-choose-to-share) for the full breakdown.
 
 ## Where are the old "Advanced Settings"?
 
