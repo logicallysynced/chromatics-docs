@@ -280,7 +280,7 @@ A handful of deeper options that used to require editing `settings.chromatics3` 
 <table><thead><tr><th width="320">Setting</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>rgbRefreshRate</code></td><td>Refresh rate (in seconds) of the RGB rendering surface. Default <code>0.05</code>. Lower values are smoother but use more CPU. Values below <code>0.05</code> are not recommended.<br><em>Takes effect on restart.</em></td></tr>
 <tr><td><code>criticalHpPercentage</code></td><td>The HP percentage at which the HP Tracker switches to its critical colour. Default <code>20.0</code>.</td></tr>
-<tr><td><code>deviceHueBridgeIP</code> / <code>deviceHueBridgeKey</code> / <code>deviceHueBridgeStreamingKey</code></td><td>The Hue bridge credentials. Normally set automatically during pairing, but can be filled in by hand if you're restoring a backup.</td></tr>
+<tr><td><code>deviceHueBridgeIP</code></td><td>The Hue bridge address. Normally set automatically during pairing, but can be filled in by hand if you're restoring a backup.</td></tr>
 <tr><td><code>openRgbServerIp</code></td><td>IP address of the OpenRGB SDK server Chromatics connects to when the OpenRGB provider is enabled. Default <code>127.0.0.1</code> (local machine). Set this to another machine's IP on your LAN to drive lighting from a remote OpenRGB instance. Port is fixed at 6742.<br><em>Takes effect on restart, or when the OpenRGB provider toggle is flipped off then back on.</em></td></tr>
 </tbody></table>
 
