@@ -241,6 +241,12 @@ A pre-built key layout database covering 2650 QMK boards ships with Chromatics, 
 **Close VIA, Vial, or OpenRGB before enabling.** All three open the Raw HID interface exclusively while they're running. Chromatics can't share the interface with them.
 {% endhint %}
 
+{% hint style="info" %}
+**Per-LED control needs custom firmware.** Stock QMK firmware (including Keychron vendor builds) lands on the VIA protocol path, which only exposes one RGB matrix base colour for the whole device. The device acts as a single zone - every LED glows the same colour at any moment, even when Chromatics layers paint per-LED. Per-LED control needs the **OpenRGB-QMK plugin** compiled into your firmware. The plugin is a third-party add-on, not part of stock QMK; you build it into a custom QMK firmware image and flash that onto your device yourself. Once flashed, Chromatics's handshake detects the plugin automatically on the next launch and switches the device to per-LED direct mode.
+
+Chromatics does not provide instructions, support, or pre-built firmware images for the OpenRGB-QMK plugin. Building and flashing custom firmware is between you, your device's QMK keymap, and the OpenRGB-QMK project. A bad flash can brick a device - only attempt this if you can recover from one.
+{% endhint %}
+
 ## Advanced
 
 ### Opt in to beta releases
