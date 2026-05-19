@@ -214,6 +214,14 @@ There's no setup dialog or adoption picker. Windows already enumerates compatibl
 On first enable, Chromatics shows a setup walkthrough explaining how to make Chromatics the priority controller in **Settings → Personalization → Dynamic Lighting**. Follow those steps for best results during gameplay.
 {% endhint %}
 
+{% hint style="warning" %}
+**Turn on Use Dynamic Lighting on my devices** at the top of **Settings → Personalization → Dynamic Lighting**. This is the master switch for the whole Windows Dynamic Lighting system - background control stays off without it, regardless of what's in the Background controllers list below.
+{% endhint %}
+
+{% hint style="info" %}
+**After resetting Chromatics** (Settings → Reset), background Dynamic Lighting needs two launches to come back. The first launch after a reset re-registers Chromatics with Windows but the running process can't pick up the new identity, so background lighting stays off and only foreground writes work. Background control activates on the second launch. Foreground lighting is unaffected on either launch.
+{% endhint %}
+
 **Conflict handling.** If you have a Razer keyboard that's already controlled by the Chromatics Razer provider AND it shows up under Dynamic Lighting, both providers would otherwise race for the device every frame and the lighting could flicker. Default behaviour: Dynamic Lighting adopts every compatible device Windows lists, regardless of overlap. If you see flickering, go to **Settings → Advanced** and turn off **Allow Dynamic Lighting to control devices already covered by another Chromatics provider**. Dynamic Lighting will then silently skip devices that have a vendor provider currently enabled.
 
 If Windows enumerates zero Dynamic Lighting devices on enable (no compatible hardware, or every device is hidden by the conservative conflict-handling above), Chromatics flips the toggle back off and surfaces a dialog explaining what to check.
