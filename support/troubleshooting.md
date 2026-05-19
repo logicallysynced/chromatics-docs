@@ -177,6 +177,49 @@ Leave G HUB itself running. Chromatics talks to your Logitech devices through G 
 
 </details>
 
+<details>
+
+<summary>My QMK keyboard isn't detected</summary>
+
+1. **Is QMK Keyboards enabled?** Check **Settings → Device Providers → QMK Keyboards (Beta)**. If you've just enabled it, restart Chromatics so the device scan re-runs.
+2. **Close VIA, Vial, and OpenRGB before enabling.** All three open the Raw HID interface in exclusive mode while they're running. Chromatics can't share the interface with them. Exit those apps from their tray icons, then re-toggle the QMK provider.
+3. **Confirm the firmware exposes Raw HID.** VIA-compatible QMK builds ship with Raw HID on by default. Firmware compiled without `RAW_ENABLE = yes` in `rules.mk` won't expose the interface and Chromatics can't talk to it.
+4. **Check the Console.** Chromatics logs every HID device on the USB bus, which ones expose the Raw HID interface, and which responded to the handshake. The `[QMK] Discovery done:` line at the end of the scan summarises the breakdown by count.
+
+</details>
+
+<details>
+
+<summary>My QMK keyboard shows one colour at a time instead of per-key</summary>
+
+Stock QMK firmware works this way. The VIA protocol that ships with VIA-compatible QMK builds only exposes one RGB matrix base colour for the whole device, so the keyboard acts as a single zone. Chromatics's keyboard layers still paint normally - the device renders them as one colour.
+
+Per-LED control needs the **OpenRGB-QMK plugin** compiled into your firmware. The plugin is a third-party add-on, not part of stock QMK; you build it into a custom QMK firmware image and flash that onto your device yourself. Once flashed, Chromatics's handshake detects the plugin automatically on the next launch and switches the device to per-LED direct mode.
+
+Chromatics does not provide instructions, support, or pre-built firmware images for the OpenRGB-QMK plugin. Building and flashing custom firmware is between you, your device's QMK keymap, and the OpenRGB-QMK project. A bad flash can brick a device - only attempt this if you can recover from one.
+
+</details>
+
+<details>
+
+<summary>My QMK macropad or knob board only shows one LED in Mappings</summary>
+
+QMK macropads, knob boards, and similar non-keyboard devices running stock QMK firmware act as a single-zone device through VIA. Chromatics exposes them as a single Custom1 LED so you can drive their lighting from the Mappings tab without phantom keyboard keys cluttering the view.
+
+If your device has more than one physical LED and you want individual control over each, you need the OpenRGB-QMK plugin compiled into the firmware. See _My QMK keyboard shows one colour at a time instead of per-key_ above for context and disclaimers.
+
+</details>
+
+<details>
+
+<summary>My QMK keyboard's keys light the wrong physical positions</summary>
+
+VIA-only QMK keyboards use a synthetic ANSI 104 key layout because VIA doesn't expose per-LED addressing - all keys map to the firmware's single matrix colour anyway, so the layout exists only so Chromatics's keyboard effects have something to paint against. The wrong-physical-key complaint only applies to OpenRGB-QMK firmware where Chromatics drives each LED individually.
+
+If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics ships a pre-built key layout database covering 2650 QMK boards (sourced from www.caniusevia.com keymaps). For boards outside that database, open the [Mappings](../using-chromatics/mappings.md) tab and drag each key into its correct physical position. The mapping persists across restarts.
+
+</details>
+
 ## Effects and lighting
 
 <details>
