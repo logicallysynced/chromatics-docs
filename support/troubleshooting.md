@@ -219,9 +219,28 @@ In your keymap's `rules.mk`:
 ```
 OPENRGB_ENABLE = yes
 VIA_ENABLE = no
+OPT_DEFS += -DRAW_EPSIZE=64
 ```
 
 `OPENRGB_ENABLE` and `VIA_ENABLE` cannot coexist - both want exclusive ownership of the Raw HID receive endpoint. Chromatics is fine without VIA on the device; the OpenRGB-QMK protocol covers everything Chromatics needs.
+
+The `RAW_EPSIZE=64` line is the easy one to miss and the hardest to debug if missed. `quantum/openrgb.h` defines `RAW_EPSIZE 64` locally, but that only covers `openrgb.c`'s translation unit. The USB descriptor and `usb_main.c::send_raw_hid` read their `RAW_EPSIZE` from `tmk_core/protocol/usb_descriptor.h`, which defaults to `32`. The build looks clean and the keyboard enumerates fine, but `send_raw_hid` then drops every OpenRGB reply at its `if (length != RAW_EPSIZE) return;` check (32 in that file, 64 in openrgb.c's send buffer). Chromatics's QMK provider logs the handshake timeout and includes the same fix in its error message; the docs-side fix is to put the `OPT_DEFS` line in your keymap rules.mk so the 64 propagates to every translation unit.
+
+`tmk_core/protocol/usb_descriptor.h:315` ships unguarded:
+
+```c
+#define RAW_EPSIZE 32
+```
+
+QMK builds with `-Werror`, so adding `-DRAW_EPSIZE=64` to OPT\_DEFS will collide and fail with `"RAW_EPSIZE" redefined`. Wrap the existing define in an `#ifndef` guard so OPT\_DEFS wins:
+
+```c
+#ifndef RAW_EPSIZE
+#    define RAW_EPSIZE 32
+#endif
+```
+
+This is a one-line change against a TMK protocol header that's shared with mainline QMK. Anyone porting OpenRGB-QMK to modern Keychron-fork (or mainline) QMK needs it; the upstream guard fix has not been merged.
 
 **Forward-port gotchas if you're starting from the 2022-era Kasper24 fork**
 
