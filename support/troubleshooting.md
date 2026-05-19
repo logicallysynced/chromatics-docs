@@ -210,7 +210,7 @@ If your device has more than one physical LED and you want individual control ov
 
 </details>
 
-<details>
+<details> 
 
 <summary>My QMK keyboard's keys light the wrong physical positions</summary>
 
