@@ -1,7 +1,7 @@
 ---
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/DpGqSy4CPpGNrMRyhQGc/support/troubleshooting
+    - troubleshooting.md
 ---
 
 # Troubleshooting
@@ -210,13 +210,13 @@ If your device has more than one physical LED and you want individual control ov
 
 </details>
 
-<details> 
+<details>
 
 <summary>My QMK keyboard's keys light the wrong physical positions</summary>
 
 VIA-only QMK keyboards use a synthetic ANSI 104 key layout because VIA doesn't expose per-LED addressing - all keys map to the firmware's single matrix colour anyway, so the layout exists only so Chromatics's keyboard effects have something to paint against. The wrong-physical-key complaint only applies to OpenRGB-QMK firmware where Chromatics drives each LED individually.
 
-If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics ships a pre-built key layout database covering 2650 QMK boards (sourced from www.caniusevia.com keymaps). For boards outside that database, open the [Mappings](../using-chromatics/mappings.md) tab and drag each key into its correct physical position. The mapping persists across restarts.
+If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics ships a pre-built key layout database covering 2650 QMK boards (sourced from www.caniusevia.com keymaps). For boards outside that database, open the [Mappings](../using-chromatics/mappings.md) tab and drag each key into its correct physical position. The mapping persists across restarts.&#x20;
 
 </details>
 
@@ -307,8 +307,8 @@ When you report an issue, logs make everything faster.
 
 <summary>Where to get more help</summary>
 
-* **[Discord](https://discord.gg/sK47yFE)** - the fastest way to reach us and the community.
-* **[GitHub Issues](https://github.com/logicallysynced/Chromatics/issues)** - for reproducible bugs and feature requests.
-* **[FAQ](faq.md)** - answers to common questions.
+* [**Discord**](https://discord.gg/sK47yFE) - the fastest way to reach us and the community.
+* [**GitHub Issues**](https://github.com/logicallysynced/Chromatics/issues) - for reproducible bugs and feature requests.
+* [**FAQ**](faq.md) - answers to common questions.
 
 </details>
