@@ -194,9 +194,48 @@ Leave G HUB itself running. Chromatics talks to your Logitech devices through G 
 
 Stock QMK firmware works this way. The VIA protocol that ships with VIA-compatible QMK builds only exposes one RGB matrix base colour for the whole device, so the keyboard acts as a single zone. Chromatics's keyboard layers still paint normally - the device renders them as one colour.
 
-Per-LED control needs the **OpenRGB-QMK plugin** compiled into your firmware. The plugin is a third-party add-on, not part of stock QMK; you build it into a custom QMK firmware image and flash that onto your device yourself. Once flashed, Chromatics's handshake detects the plugin automatically on the next launch and switches the device to per-LED direct mode.
+Per-LED control needs the **OpenRGB-QMK firmware module** compiled into your QMK build. It's a third-party add-on, not part of stock QMK; you compile it into a custom QMK firmware image and flash that onto your device yourself. Once flashed, Chromatics's handshake detects the module on the next launch and switches the device to per-LED direct mode.
 
-Chromatics does not provide instructions, support, or pre-built firmware images for the OpenRGB-QMK plugin. Building and flashing custom firmware is between you, your device's QMK keymap, and the OpenRGB-QMK project. A bad flash can brick a device - only attempt this if you can recover from one.
+Chromatics does not provide instructions, support, or pre-built firmware images for the OpenRGB-QMK firmware module. Building and flashing custom firmware is between you, your device's QMK keymap, and the OpenRGB-QMK project. A bad flash can brick a device - only attempt this if you can recover from one.
+
+**What goes into a build that Chromatics will detect**
+
+The OpenRGB-QMK firmware module is three source files plus build wiring. The canonical source is the [Kasper24/QMK-OpenRGB](https://github.com/Kasper24/QMK-OpenRGB) fork on the `openrgb` branch. The protocol Chromatics speaks at handshake is `OPENRGB_PROTOCOL_VERSION 0xC`; firmware modules at that protocol version are detected automatically.
+
+Source files (copy across into your QMK tree):
+
+* `quantum/openrgb.c` - the Raw HID command handler.
+* `quantum/openrgb.h` - protocol header.
+* `quantum/rgb_matrix/animations/openrgb_direct_anim.h` - the `OPENRGB_DIRECT` rgb_matrix effect Chromatics drives in per-LED mode.
+
+Build-system edits:
+
+* `builddefs/common_features.mk` - add the `OPENRGB_ENABLE` block (force-enables `RAW_ENABLE`, adds `openrgb.c` to `SRC`, defines `-DOPENRGB_ENABLE`).
+* `builddefs/show_options.mk` - list `OPENRGB_ENABLE` so it shows in the build banner.
+* `quantum/rgb_matrix/animations/rgb_matrix_effects.inc` - include `openrgb_direct_anim.h` so the `OPENRGB_DIRECT` effect registers.
+
+In your keymap's `rules.mk`:
+
+```
+OPENRGB_ENABLE = yes
+VIA_ENABLE = no
+```
+
+`OPENRGB_ENABLE` and `VIA_ENABLE` cannot coexist - both want exclusive ownership of the Raw HID receive endpoint. Chromatics is fine without VIA on the device; the OpenRGB-QMK protocol covers everything Chromatics needs.
+
+**Forward-port gotchas if you're starting from the 2022-era Kasper24 fork**
+
+The original OpenRGB-QMK fork targets a 2022 snapshot of QMK. To compile against current QMK (2024 onwards), three small renames are needed in the copied source:
+
+* `DRIVER_LED_TOTAL` → `RGB_MATRIX_LED_COUNT` (renamed in upstream QMK; the old name was removed).
+* `raw_hid_receive(uint8_t *data, uint8_t length)` → `raw_hid_receive(uint8_t src, uint8_t *data, uint8_t length)` (a `src` argument was added to disambiguate USB vs wireless transports).
+* `keymaps[0][row][col]` → `keymap_key_to_keycode(0, (keypos_t){.row = row, .col = col})` (direct keymap-array access was replaced with an accessor function).
+
+**Vendor-specific Raw HID conflicts**
+
+Keychron's QMK fork at `keyboards/keychron/common/keychron_raw_hid.c` ships its own `raw_hid_receive` implementation for the Keychron Launcher web app. Adding the OpenRGB-QMK module to a Keychron-fork build produces a multiple-definition link error. Gate Keychron's implementation behind `#if !defined(OPENRGB_ENABLE)` so the OpenRGB handler wins when the flag is set. Other vendor forks may have similar conflicts - any `raw_hid_receive` definition outside `quantum/` needs gating.
+
+**Tradeoff to know about.** OpenRGB-QMK takes over the Raw HID endpoint, which disables vendor companion apps that use the same endpoint (Keychron Launcher, VIA itself, etc.) on the same firmware. To switch back, flash a stock firmware image.
 
 </details>
 
@@ -206,7 +245,7 @@ Chromatics does not provide instructions, support, or pre-built firmware images 
 
 QMK macropads, knob boards, and similar non-keyboard devices running stock QMK firmware act as a single-zone device through VIA. Chromatics exposes them as a single Custom1 LED so you can drive their lighting from the Mappings tab without phantom keyboard keys cluttering the view.
 
-If your device has more than one physical LED and you want individual control over each, you need the OpenRGB-QMK plugin compiled into the firmware. See _My QMK keyboard shows one colour at a time instead of per-key_ above for context and disclaimers.
+If your device has more than one physical LED and you want individual control over each, you need the OpenRGB-QMK firmware module compiled into the firmware. See _My QMK keyboard shows one colour at a time instead of per-key_ above for context and disclaimers.
 
 </details>
 
@@ -214,7 +253,7 @@ If your device has more than one physical LED and you want individual control ov
 
 <summary>My QMK keyboard's keys light the wrong physical positions</summary>
 
-VIA-only QMK keyboards use a synthetic ANSI 104 key layout because VIA doesn't expose per-LED addressing - all keys map to the firmware's single matrix colour anyway, so the layout exists only so Chromatics's keyboard effects have something to paint against. The wrong-physical-key complaint only applies to OpenRGB-QMK firmware where Chromatics drives each LED individually.
+VIA-only QMK keyboards use a synthetic ANSI 104 key layout because VIA doesn't expose per-LED addressing - all keys map to the firmware's single matrix colour anyway, so the layout exists only so Chromatics's keyboard effects have something to paint against. The wrong-physical-key complaint only applies to firmware with the OpenRGB-QMK module flashed, where Chromatics drives each LED individually.
 
 If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics ships a pre-built key layout database covering 2650 QMK boards (sourced from www.caniusevia.com keymaps). For boards outside that database, open the [Mappings](../using-chromatics/mappings.md) tab and drag each key into its correct physical position. The mapping persists across restarts.&#x20;
 
