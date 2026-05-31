@@ -295,9 +295,13 @@ If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics s
 
 <summary>My Redragon mouse flickers under fast colour changes</summary>
 
-This was a bug in builds before v4.2.62 - the provider opened more than one HID interface against the same physical mouse, and both write-paths raced for the USB endpoint. The M908 Impact was the most-affected model; M711-class mice flickered less visibly. The fix landed in v4.2.62.
+Each frame Chromatics sends two HID feature reports - a colour write to register `0x0449` and an apply commit (`0xF1`). The firmware briefly dips PWM output on every commit while it re-reads the colour register. At 30 frames per second those dips read as continuous flicker on most hardware. The M908 Impact shows it most clearly.
 
-If you still see flicker on v4.2.62 or later, the `[Redragon] Discovery resolved N candidate(s):` line in `verbose.log` will tell you how many handles Chromatics opened. `N == 1` per physical mouse is correct; anything higher means the interface filter still matched a second collection.
+The v4.2.64 default cuts the per-frame cadence to 15 frames per second so the dips fall below perception while cycling effects stay smooth. If you still see flicker on v4.2.64 or later, edit `redragonUpdateRateHz` in `settings.chromatics4` (see the hidden settings table in [Settings → Where are the old "Advanced Settings"?](../using-chromatics/settings.md#where-are-the-old-advanced-settings)) and drop the value further. `5` or `10` are good next steps; the setting is clamped to `1`-`30`.
+
+{% hint style="info" %}
+If you saw this on v4.2.62 or v4.2.63, those builds shipped an earlier (incomplete) fix that aimed at duplicate HID handles. The actual cause is the per-frame commit cadence, addressed in v4.2.64.
+{% endhint %}
 
 </details>
 
