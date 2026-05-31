@@ -94,10 +94,12 @@ Supported providers:
 * Philips Hue - searches your network for bridges, pairs, then asks which bulbs to control.
 * PlayStation - DualShock 4 and DualSense controllers.
 * LIFX - runs a network discovery and asks you which devices to control.
-* QMK Keyboards (Beta) - custom keyboards running QMK firmware with Raw HID enabled.
+* QMK (Beta) - custom keyboards running QMK firmware with Raw HID enabled.
 * Yeelight (Beta) - Yeelight bulbs, light strips, and lamps over the local LAN.
 * Alienware (Beta) - AlienFX hardware on Alienware and Dell G-series machines.
 * Dynamic Lighting (Beta) - any Razer / Logitech G LIGHTSYNC / ASUS ROG / HyperX / MSI / SteelSeries / HP / Omen device Windows exposes via the Dynamic Lighting standard.
+* Redragon (Beta) - Redragon RGB mice on the OpenRGB HID protocol family.
+* EVision (Beta) - Glorious, Redragon, and other keyboards on the Sonix VS11K28A firmware family.
 
 {% hint style="info" %}
 We recommend restarting Chromatics after enabling new device providers.
@@ -226,9 +228,9 @@ On first enable, Chromatics shows a setup walkthrough explaining how to make Chr
 
 If Windows enumerates zero Dynamic Lighting devices on enable (no compatible hardware, or every device is hidden by the conservative conflict-handling above), Chromatics flips the toggle back off and surfaces a dialog explaining what to check.
 
-### QMK Keyboards (Beta)
+### QMK (Beta)
 
-Enabling **QMK Keyboards** scans the USB bus for keyboards running QMK firmware with Raw HID enabled and adopts every compatible board it finds. Covers custom keyboards from NovelKeys, KBDFans, Drop, GMMK, Glorious, and any other brand running QMK.
+Enabling **QMK** scans the USB bus for keyboards running QMK firmware with Raw HID enabled and adopts every compatible board it finds. Covers custom keyboards from NovelKeys, KBDFans, Drop, GMMK, Glorious, and any other brand running QMK.
 
 Chromatics drives QMK boards through one of two protocols, picked per board:
 
@@ -246,6 +248,53 @@ A pre-built key layout database covering 2650 QMK boards ships with Chromatics s
 
 Chromatics does not provide instructions, support, or pre-built firmware images for the OpenRGB-QMK firmware module. Building and flashing custom firmware is between you, your device's QMK keymap, and the OpenRGB-QMK project. A bad flash can brick a device - only attempt this if you can recover from one. See [Troubleshooting → My QMK keyboard shows one colour at a time instead of per-key](../support/troubleshooting.md#my-qmk-keyboard-shows-one-colour-at-a-time-instead-of-per-key) for the build flags and source files involved.
 {% endhint %}
+
+### Redragon (Beta)
+
+Enabling **Redragon** scans the USB bus for Redragon RGB mice on the same HID feature-report protocol OpenRGB drives. Covers 13 mice - M711 Cobra, M715 Dagger, M716 Inquisitor, M602 Griffin, M801 Sniper, M808 Storm, M810 Taipan, M908 Impact, M987 Reaping, M719 Invader, M990 Legend, M709 Tiger, and M721-Pro Lonewolf 2.
+
+Chromatics talks to these mice directly over HID feature reports. There's no Redragon utility to install, no OpenRGB server to run, and no third-party DLL.
+
+Every detected mouse adopts at toggle-on. Per-device disable lives on the Mappings tab.
+
+{% hint style="warning" %}
+**Close OpenRGB, Razer Synapse, or the Redragon utility before enabling.** All three open the same HID interface in exclusive mode while they're running. Chromatics can't share the interface with them.
+{% endhint %}
+
+{% hint style="info" %}
+**Single-zone hardware.** Every Redragon mouse on this protocol exposes one addressable colour zone - the logo and DPI underglow share one register. Chromatics paints them as a single LED on the Mappings tab.
+{% endhint %}
+
+### EVision (Beta)
+
+Enabling **EVision** scans the USB bus for keyboards on the Sonix VS11K28A firmware family and adopts every compatible board it finds. Covers 13 keyboards across multiple OEMs:
+
+* **Glorious GMMK TKL**
+* **Redragon K550 Yama, K552 Kumara, K552 V2 / K552-2, K556 Devarajas**
+* **Tecware Phantom Elite, Womier K66 and K87, Mars Gaming MKMini, Skillkorp K5, DEXP Blaze, Warrior Kane TC235, Gamepower Ogre RGB**
+
+Chromatics talks to these keyboards directly over HID output reports. There's no Glorious Core to install, no OpenRGB server to run, and no third-party DLL.
+
+Every detected keyboard adopts at toggle-on. Per-device disable lives on the Mappings tab.
+
+{% hint style="info" %}
+**First-enable dialog.** Chromatics shows a one-time dialog the first time the EVision provider successfully picks up a keyboard. The dialog explains how the protocol affects the keyboard over time (see the warning below).
+{% endhint %}
+
+{% hint style="warning" %}
+**The protocol writes to the keyboard's storage chip on every colour change.** Static colours and slow effects cost nothing. Continuous fast-changing effects (spectrum cycle, audio visualizer, raid animations) write the chip hundreds of times per minute. Over years of continuous use, that wear could shorten the chip lifespan. OpenRGB has used the same protocol for years and the community has not reported widespread storage-chip failures. If you mostly run static colours or slow effects, you do not need to do anything. If you plan to run fast-changing effects continuously for hours every day, switch the keyboard off on the Mappings tab when you do not need it.
+{% endhint %}
+
+{% hint style="info" %}
+**Default update rate is 10 frames per second**, slower than the 30 FPS Chromatics uses for other providers, to cut storage-chip wear. Power users can override the rate via the `eVisionUpdateRateHz` hidden setting (see the table at the bottom of this page).
+{% endhint %}
+
+**Key layout.** Each detected keyboard exposes 126 LED slots regardless of physical key count - TKL and full-size boards alike use the same firmware buffer. The firmware's slot ordering does not match the physical scan order on any specific keyboard, so Chromatics exposes each slot as a Custom LedId. Drag keys into their correct physical position via the [Mappings](mappings.md) tab. The mapping persists across restarts.
+
+**Keyboards NOT in scope:**
+
+* **Redragon K530 Draconic Pro** and **K568 Dark Avenger** - not in OpenRGB's detection table. The same USB vendor ID is reused for non-EVision firmware on other boards, so we cannot safely add their PIDs without confirmed hardware.
+* **Glorious GMMK Pro** and **GMMK 2** - different chip family, no community driver.
 
 ## Advanced
 
@@ -296,6 +345,7 @@ A handful of deeper options that used to require editing `settings.chromatics3` 
 <tr><td><code>criticalHpPercentage</code></td><td>The HP percentage at which the HP Tracker switches to its critical colour. Default <code>20.0</code>.</td></tr>
 <tr><td><code>deviceHueBridgeIP</code></td><td>The Hue bridge address. Normally set automatically during pairing, but can be filled in by hand if you're restoring a backup.</td></tr>
 <tr><td><code>openRgbServerIp</code></td><td>IP address of the OpenRGB SDK server Chromatics connects to when the OpenRGB provider is enabled. Default <code>127.0.0.1</code> (local machine). Set this to another machine's IP on your LAN to drive lighting from a remote OpenRGB instance. Port is fixed at 6742.<br><em>Takes effect on restart, or when the OpenRGB provider toggle is flipped off then back on.</em></td></tr>
+<tr><td><code>eVisionUpdateRateHz</code></td><td>Update rate (frames per second) for the EVision keyboard provider. Default <code>10</code>. Raise it for smoother dynamic effects at the cost of more frequent writes to the keyboard's storage chip; lower it to cut wear from continuous use. Clamped to <code>1</code>-<code>30</code> at provider start - out-of-range or non-numeric values fall back to the default.<br><em>Takes effect on restart, or when the EVision provider toggle is flipped off then back on.</em></td></tr>
 </tbody></table>
 
 {% hint style="warning" %}

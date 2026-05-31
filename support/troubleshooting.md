@@ -181,7 +181,7 @@ Leave G HUB itself running. Chromatics talks to your Logitech devices through G 
 
 <summary>My QMK keyboard isn't detected</summary>
 
-1. **Is QMK Keyboards enabled?** Check **Settings → Device Providers → QMK Keyboards (Beta)**. If you've just enabled it, restart Chromatics so the device scan re-runs.
+1. **Is QMK enabled?** Check **Settings → Device Providers → QMK (Beta)**. If you've just enabled it, restart Chromatics so the device scan re-runs.
 2. **Close VIA, Vial, and OpenRGB before enabling.** All three open the Raw HID interface in exclusive mode while they're running. Chromatics can't share the interface with them. Exit those apps from their tray icons, then re-toggle the QMK provider.
 3. **Confirm the firmware exposes Raw HID.** VIA-compatible QMK builds ship with Raw HID on by default. Firmware compiled without `RAW_ENABLE = yes` in `rules.mk` won't expose the interface and Chromatics can't talk to it.
 4. **Check the Console.** Chromatics logs every HID device on the USB bus, which ones expose the Raw HID interface, and which responded to the handshake. The `[QMK] Discovery done:` line at the end of the scan summarises the breakdown by count.
@@ -275,6 +275,75 @@ If your device has more than one physical LED and you want individual control ov
 VIA-only QMK keyboards use a synthetic ANSI 104 key layout because VIA doesn't expose per-LED addressing - all keys map to the firmware's single matrix colour anyway, so the layout exists only so Chromatics's keyboard effects have something to paint against. The wrong-physical-key complaint only applies to firmware with the OpenRGB-QMK module flashed, where Chromatics drives each LED individually.
 
 If you've flashed OpenRGB-QMK and the wrong physical keys light up, Chromatics ships a pre-built key layout database covering 2650 QMK boards (sourced from www.caniusevia.com keymaps). For boards outside that database, open the [Mappings](../using-chromatics/mappings.md) tab and drag each key into its correct physical position. The mapping persists across restarts.&#x20;
+
+</details>
+
+## Redragon mice (Beta)
+
+<details>
+
+<summary>My Redragon mouse isn't detected</summary>
+
+1. **Is Redragon enabled?** Check **Settings → Device Providers → Redragon (Beta)**. If you've just enabled it, restart Chromatics so the device scan re-runs.
+2. **Close OpenRGB, Razer Synapse, or the Redragon utility before enabling.** All three open the HID interface in exclusive mode while running. Chromatics can't share the interface with them.
+3. **Plug the mouse in directly.** Some USB hubs strip the vendor-defined HID interfaces Chromatics needs. Try a direct port on your PC.
+4. **Check the model is supported.** Chromatics covers the 13 mice listed in the [Settings page](../using-chromatics/settings.md#redragon-beta). Other Redragon mice use different protocols and are not handled by this provider.
+
+</details>
+
+<details>
+
+<summary>My Redragon mouse flickers under fast colour changes</summary>
+
+This was a bug in builds before v4.2.62 - the provider opened more than one HID interface against the same physical mouse, and both write-paths raced for the USB endpoint. The M908 Impact was the most-affected model; M711-class mice flickered less visibly. The fix landed in v4.2.62.
+
+If you still see flicker on v4.2.62 or later, the `[Redragon] Discovery resolved N candidate(s):` line in `verbose.log` will tell you how many handles Chromatics opened. `N == 1` per physical mouse is correct; anything higher means the interface filter still matched a second collection.
+
+</details>
+
+<details>
+
+<summary>My Redragon mouse only shows one LED in Mappings</summary>
+
+Every Redragon mouse on this protocol exposes one addressable colour zone. The logo and DPI underglow share the same firmware register, so Chromatics models them as a single LED. There is no per-LED control on this hardware. Map the single LED to whichever layer you want via the Mappings tab.
+
+</details>
+
+## EVision keyboards (Beta)
+
+<details>
+
+<summary>My EVision-family keyboard isn't detected</summary>
+
+1. **Is EVision enabled?** Check **Settings → Device Providers → EVision (Beta)**. If you've just enabled it, restart Chromatics so the device scan re-runs.
+2. **Close OpenRGB and the vendor utility before enabling.** Glorious Core, the Redragon utility, and any other lighting software hold the HID interface exclusively while running. Chromatics can't share the interface with them.
+3. **Check the model is supported.** Chromatics covers the 13 keyboards listed in the [Settings page](../using-chromatics/settings.md#evision-beta). The Redragon K530 Draconic Pro and K568 Dark Avenger are NOT in the list - their PIDs are not in OpenRGB's detection table and we cannot add them safely without confirmed hardware.
+4. **Check the Console.** The `[EVision] Discovery resolved N candidate(s):` line at the end of the scan lists every detected keyboard with its USB device path. If your keyboard's VID is `0x0C45` or `0x320F` but it isn't on that list, the PID does not match any entry in the supported table.
+
+</details>
+
+<details>
+
+<summary>Will running dynamic effects damage my EVision keyboard?</summary>
+
+The V1 protocol the EVision provider speaks writes to the keyboard's storage chip on every colour change. Static colours and slow effects cost nothing. Continuous fast-changing effects (spectrum cycle, audio visualizer, raid animations) write the chip hundreds of times per minute. Over years of continuous use, that wear could shorten the chip lifespan.
+
+The community has driven these keyboards through the same protocol via OpenRGB for years and has not reported widespread storage-chip failures. The trade-off is real but the practical risk is small for typical use.
+
+If you mostly run static colours or slow effects, you have nothing to worry about. If you plan to run fast-changing effects continuously for hours every day, you have two options:
+
+* **Switch the keyboard off on the Mappings tab when you do not need it.** The toggle stops the writes immediately.
+* **Lower the update rate.** Edit `eVisionUpdateRateHz` in `settings.chromatics4` (see the hidden settings table in [Settings → Where are the old "Advanced Settings"?](../using-chromatics/settings.md#where-are-the-old-advanced-settings)). The default is 10. Drop to 5 or lower if you want minimum wear.
+
+</details>
+
+<details>
+
+<summary>My EVision keyboard's keys light the wrong physical positions</summary>
+
+The firmware exposes 126 LED slots in a fixed wire order that does not match any specific keyboard's physical scan order. Chromatics names each slot as a Custom LedId because the OEM rebrands ship the same firmware on physically different keyboards. There is no per-board key-name table.
+
+Open the [Mappings](../using-chromatics/mappings.md) tab and drag each LED into its correct physical position on your keyboard. The mapping persists across restarts.
 
 </details>
 

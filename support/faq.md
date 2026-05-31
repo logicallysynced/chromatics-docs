@@ -67,10 +67,12 @@ Supported vendors:
 * Philips Hue - bridges and compatible bulbs
 * PlayStation - DualShock 4 and DualSense controllers
 * LIFX - bulbs, multi-zone strips, and matrix devices
-* QMK Keyboards (Beta) - custom keyboards running QMK firmware with Raw HID enabled
+* QMK (Beta) - custom keyboards running QMK firmware with Raw HID enabled
 * Yeelight (Beta) - bulbs, light strips, and lamps over the local LAN
 * Alienware (Beta) - AlienFX hardware on Alienware and Dell G-series machines
 * Dynamic Lighting (Beta) - any device Windows exposes via the Dynamic Lighting standard (Razer, Logitech G LIGHTSYNC, ASUS ROG, HyperX, MSI, SteelSeries, HP, Omen)
+* Redragon (Beta) - Redragon RGB mice on the OpenRGB HID protocol family (13 mice across the M711 / M715 / M716 / M602 / M801 / M808 / M810 / M908 / M987 / M719 / M990 / M709 / M721-Pro lineups)
+* EVision (Beta) - Glorious GMMK TKL, Redragon K550 / K552 / K552-2 / K556, and other keyboards on the Sonix VS11K28A firmware (13 keyboards across Glorious, Redragon, Tecware, Womier, Mars Gaming, Skillkorp, DEXP, Warrior, and Gamepower)
 
 If you're unsure whether your specific device model is supported, see the [RGB.NET GitHub](https://github.com/DarthAffe/RGB.NET) or ask in our [Discord](https://discord.gg/sK47yFE).
 
