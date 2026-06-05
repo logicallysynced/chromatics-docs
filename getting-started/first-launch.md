@@ -26,11 +26,17 @@ Each tile represents a family of RGB hardware:
 * Novation
 * OpenRGB
 * PlayStation (Beta) - DualShock 4 and DualSense controllers
+* QMK (Beta) - custom keyboards running QMK firmware with Raw HID
+* Philips Hue - smart bulbs over your local Hue Bridge
+* LIFX - bulbs, strips, and tiles on your local network
+* Yeelight (Beta) - bulbs, light strips, and lamps on your local network
+* Alienware (Beta) - AlienFX hardware on Alienware chassis and Dell G-series machines
+* Windows Dynamic Lighting (Beta) - any device Windows lists in Settings → Personalization → Dynamic Lighting (Windows 11+)
 
 Tick every provider you actually own hardware for. You need to pick **at least one** to continue. If you're not sure, it's safe to tick all of them. Chromatics only talks to what's connected.
 
 {% hint style="info" %}
-**Philips Hue** and **LIFX** are not in the Welcome wizard because they need a network setup step (a bridge pairing and bulb picker for Hue, a device picker for LIFX). You can turn either of them on later from **Settings → Device Providers**.
+**EVision** keyboards and **Redragon** mice aren't in the Welcome wizard. You can turn them on later from **Settings → Device Providers**.
 {% endhint %}
 
 When you're happy, click **Continue**. Chromatics will save your choices and open the main window.
