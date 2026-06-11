@@ -44,6 +44,8 @@ Dynamic layers sit between the base layer and the effect layer. You can add as m
 <tr><td><strong>Castbar</strong></td><td>Shows your own cast progress in real time.<br><br><em>Modes: Interpolate, Fade.</em></td></tr>
 <tr><td><strong>Job Classes Highlight</strong></td><td>Colours the selected keys based on your current job or class.</td></tr>
 <tr><td><strong>Reactive Weather Highlight</strong></td><td>Colours the selected keys based on the current weather in your zone.</td></tr>
+<tr><td><strong>Focus Target HP</strong></td><td>Shows your focus target's HP as a bar across the selected keys. Same colour states as Target HP (claimed, friendly, idle) with its own palette entries.<br><br><em>Modes: Interpolate, Fade.</em></td></tr>
+<tr><td><strong>Focus Target Castbar</strong></td><td>Shows your focus target's cast progress in real time. Handy for watching a boss's casts while you're targeting adds.<br><br><em>Modes: Interpolate, Fade.</em></td></tr>
 </tbody></table>
 
 ## Effect Layer

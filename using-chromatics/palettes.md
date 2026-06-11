@@ -23,7 +23,7 @@ Chromatics has a lot of colours, so the category drop-down lets you narrow the l
 | **Player Stats** | HP, MP, GP, CP, and Experience trackers. |
 | **Abilities** | Your own castbar effects. |
 | **Enmity / Aggro** | Enmity tracker stages. |
-| **Target / Enemy** | Target HP tracker and target castbar. |
+| **Target / Enemy** | Target HP tracker and target castbar, plus the focus target variants of both. |
 | **Status Effects** | Buff and debuff colouring. |
 | **Cooldowns / Keybinds** | Keybind highlighting - available, on cooldown, unassigned. |
 | **Notifications** | Things like the Duty Finder Bell and other alerts. |
