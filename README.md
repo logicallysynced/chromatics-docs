@@ -78,6 +78,7 @@ Chromatics uses [RGB.NET](https://github.com/DarthAffe/RGB.NET) to talk to your 
 * **PlayStation (Beta)** - DualShock 4 and DualSense controllers over USB or Bluetooth, including the lightbar and player-indicator LEDs
 * **LIFX (Beta)** - bulbs, multi-zone strips (Z, Beam, String, Neon) and matrix devices (Tile, Candle Color) on your local network
 * **Yeelight (Beta)** - bulbs, light strips, and lamps on your local network
+* **Nanoleaf (Beta)** - OpenAPI panel controllers (Shapes, Canvas, Elements, Lines, Aurora), lit per-panel at their real positions
 * **Windows Dynamic Lighting (Beta)** - any Razer, Logitech G LIGHTSYNC, ASUS ROG, HyperX, MSI, SteelSeries, HP, or Omen device Windows exposes via the Dynamic Lighting standard (Windows 11+)
 * **Alienware (Beta)** - AlienFX hardware on Alienware chassis and Dell G-series machines
 * **QMK (Beta)** - custom keyboards running QMK firmware with Raw HID, including NovelKeys, KBDFans, Drop, GMMK, and Glorious boards

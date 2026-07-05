@@ -125,6 +125,28 @@ Light strips paint as a single colour. The Yeelight LAN protocol doesn't expose 
 
 <details>
 
+<summary>My Nanoleaf controller won't pair or isn't found</summary>
+
+1. **Discovery is filtered.** Chromatics finds controllers over mDNS. If your router blocks multicast between segments (common when IoT devices sit on a separate VLAN), the sweep comes up empty. Type the controller's IP in the field at the bottom of the pairing dialog and click **Add by IP** instead - the controller's IP is in the Nanoleaf app under the device settings, or in your router's client list.
+2. **Hold the button long enough.** Pairing only works while the controller is in pairing mode. Hold the power button on the controller until the lights start flashing, then release. Chromatics polls for about 30 seconds; if it times out, click **Pair** again and re-trigger the flash.
+3. **The controller was reset.** If a previously-paired controller stops working, its token was invalidated (a factory reset or removal from the Nanoleaf app does this). Remove it in the pairing dialog and pair again.
+4. **Essentials aren't supported.** Nanoleaf bulbs and lightstrips (the Essentials line) use Matter/Thread, not the OpenAPI, so Chromatics can't control them.
+
+</details>
+
+<details>
+
+<summary>My Nanoleaf came back to the wrong scene after closing Chromatics</summary>
+
+Chromatics captures the scene the controller was showing when it took over and re-selects it by name on close. Two cases restore something else:
+
+1. **A different app owned the lights.** If another program was streaming to the controller (its own external-control session) when Chromatics started, that live state can't be recovered - Chromatics restores the last scene the controller itself was showing.
+2. **The close was cut short.** Restore runs during shutdown with a few-seconds budget per controller. If the controller was briefly unreachable at that moment, the restore is skipped. Re-selecting the scene in the Nanoleaf app fixes it, and the next normal close restores correctly.
+
+</details>
+
+<details>
+
 <summary>My Alienware lighting isn't responding</summary>
 
 1. **Quit Alienware Command Center first.** AWCC holds the AlienFX HID interface exclusively. While it's running, Chromatics can't open your AlienFX hardware. Right-click the AWCC icon in the system tray, choose **Exit**, then re-enable the Alienware provider in **Settings → Device Providers**. The Console will tell you specifically when AWCC is the blocker.

@@ -190,6 +190,23 @@ If no devices are discovered, or you save without picking any, the Yeelight togg
 
 **Music Mode** is enabled automatically on every bulb that supports it. Music Mode opens a TCP connection from the bulb back to Chromatics, which removes the bulb's normal cap of 60 commands per minute and lets fast-changing effects (Vegas mode, weather animations) track in real time. If your firewall blocks inbound TCP from the bulb, Chromatics falls back to the slower outbound channel automatically.
 
+### Nanoleaf (Beta)
+
+Enabling **Nanoleaf** opens a pairing dialog. Chromatics talks to Nanoleaf controllers over the **Nanoleaf OpenAPI** on your LAN - no Nanoleaf cloud account and no extra software. It supports the panel family (Shapes, Canvas, Elements, Lines, and the original Light Panels / Aurora) and other controllers that speak the OpenAPI. Essentials bulbs and lightstrips are not supported - they use a different protocol.
+
+**Pairing a controller** needs a physical button press, the same as adding a controller to the Nanoleaf app:
+
+1. The dialog lists controllers found on your network. If yours isn't listed, type its IP address in the field at the bottom and click **Add by IP**.
+2. Click **Pair** next to a controller. When the dialog tells you to, hold the controller's power button until the lights flash, then wait.
+3. Once paired, the controller shows its panel count and a **Remove** button. Repeat for each controller you own.
+4. Click **Save** to finish. Controllers stay paired across restarts.
+
+{% hint style="info" %}
+Each controller is one device in Chromatics, with one light per panel placed at its real position. A wall of Shapes lights up as its actual arrangement, so effects like Fire and ripples move across the panels the way they move across a keyboard.
+{% endhint %}
+
+When Chromatics takes over, it captures whatever scene the controller was showing and restores it when you disable Nanoleaf or close Chromatics.
+
 ### Alienware AlienFX (Beta)
 
 Enabling **Alienware** discovers AlienFX hardware on the HID bus and adopts every device it finds. Covers three families:
@@ -347,6 +364,7 @@ A handful of deeper options that used to require editing `settings.chromatics3` 
 <tr><td><code>openRgbServerIp</code></td><td>IP address of the OpenRGB SDK server Chromatics connects to when the OpenRGB provider is enabled. Default <code>127.0.0.1</code> (local machine). Set this to another machine's IP on your LAN to drive lighting from a remote OpenRGB instance. Port is fixed at 6742.<br><em>Takes effect on restart, or when the OpenRGB provider toggle is flipped off then back on.</em></td></tr>
 <tr><td><code>eVisionUpdateRateHz</code></td><td>Update rate (frames per second) for the EVision keyboard provider. Default <code>10</code>. Raise it for smoother dynamic effects at the cost of more frequent writes to the keyboard's storage chip; lower it to cut wear from continuous use. Clamped to <code>1</code>-<code>30</code> at provider start - out-of-range or non-numeric values fall back to the default.<br><em>Takes effect on restart, or when the EVision provider toggle is flipped off then back on.</em></td></tr>
 <tr><td><code>redragonUpdateRateHz</code></td><td>Update rate (frames per second) for the Redragon mouse provider. Default <code>15</code>. Each frame is two HID feature reports (colour write plus apply commit) and the firmware briefly dips PWM output on every commit, which reads as flicker at high rates on the M908 Impact and similar boards. Lower the value to cut flicker further; raise it for smoother dynamic effects if your specific mouse does not show flicker. Clamped to <code>1</code>-<code>30</code> at provider start - out-of-range or non-numeric values fall back to the default.<br><em>Takes effect on restart, or when the Redragon provider toggle is flipped off then back on.</em></td></tr>
+<tr><td><code>nanoleafUpdateRateHz</code></td><td>Streaming frame rate (frames per second) for the Nanoleaf provider. Default <code>20</code>. Panels accept higher rates, but 20 matches the fidelity Chromatics uses elsewhere while staying gentle on Wi-Fi. Raise it for smoother motion on a strong network; lower it if you see stutter over a congested link. Clamped to <code>1</code>-<code>60</code> at provider start - out-of-range or non-numeric values fall back to the default.<br><em>Takes effect on restart, or when the Nanoleaf provider toggle is flipped off then back on.</em></td></tr>
 </tbody></table>
 
 {% hint style="warning" %}

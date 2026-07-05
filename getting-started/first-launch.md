@@ -30,6 +30,7 @@ Each tile represents a family of RGB hardware:
 * Philips Hue - smart bulbs over your local Hue Bridge
 * LIFX - bulbs, strips, and tiles on your local network
 * Yeelight (Beta) - bulbs, light strips, and lamps on your local network
+* Nanoleaf (Beta) - OpenAPI panel controllers, paired one at a time
 * Alienware (Beta) - AlienFX hardware on Alienware chassis and Dell G-series machines
 * Windows Dynamic Lighting (Beta) - any device Windows lists in Settings → Personalization → Dynamic Lighting (Windows 11+)
 
