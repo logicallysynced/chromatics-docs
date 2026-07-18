@@ -78,6 +78,8 @@ Click it to open the **Copy layers between devices** dialog:
 
 * Pick the **source device** (defaults to the one you currently have selected in the Mappings tab).
 * Pick a **destination device**.
+
+**Copying from a device you no longer use.** The source list also includes devices you disabled on the Mappings tab and devices that aren't connected any more but still have layers saved in your mappings file - handy when you replace a keyboard and want its setup on the new one. These show a "(disabled)" or "(not connected)" label in the picker, and a note appears under the source dropdown so you know you're copying from saved layers. A disconnected device has no name on record, so it's listed by its device type and a short id instead. Tick **Hide devices that are disabled or not connected** if you'd rather keep the list to what's live right now. Disconnected devices can only be a source; the destination always has to be a connected device.
 * The dialog computes a default LED-to-LED mapping and shows it in a scrollable list, with the source LED on the left and the destination LED on the right. Override any row by picking a different destination LED from its dropdown.
 * Click **Copy layers** to duplicate every layer from the source onto the destination. Original layers on the source are left untouched.
 

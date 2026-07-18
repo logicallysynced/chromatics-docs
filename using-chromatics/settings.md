@@ -49,6 +49,12 @@ When on, Chromatics will exit automatically a few seconds after Final Fantasy XI
 
 **Default:** Disabled.
 
+### Lower the RGB refresh rate while FFXIV is not running
+
+While Chromatics is waiting for the game, it drops your devices to an idle refresh rate to save a little CPU and network traffic. The moment Chromatics attaches to FFXIV, your configured refresh rate takes over again. Turn this off if you want your configured rate running at all times, for example when you use Chromatics lighting outside the game.
+
+**Default:** Enabled.
+
 ## Appearance and Language
 
 ### Theme
