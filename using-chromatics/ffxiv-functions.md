@@ -22,6 +22,7 @@ The base layer sits under everything else. Only one is active per device at a ti
 <tr><td><strong>Job Classes</strong></td><td>Changes colour depending on your character's current job or class.</td></tr>
 <tr><td><strong>Screen Capture (Beta)</strong></td><td>Samples the colours of the Final Fantasy XIV game window and spreads them across your devices - an ambient-lighting style effect that matches what's on screen.</td></tr>
 <tr><td><strong>Audio Visualizer (Beta)</strong></td><td>Turns your keyboard (or any other grid-capable device) into a spectrum analyser. Reacts to your Windows audio output, so game music and sound effects drive the animation. See <a href="#audio-visualizer">below</a> for details.</td></tr>
+<tr><td><strong>Black</strong></td><td>Holds the entire device at black (#000000). Use it when you want a dark device where only your dynamic layers light up.</td></tr>
 </tbody></table>
 
 ## Dynamic Layers
@@ -46,6 +47,7 @@ Dynamic layers sit between the base layer and the effect layer. You can add as m
 <tr><td><strong>Reactive Weather Highlight</strong></td><td>Colours the selected keys based on the current weather in your zone.</td></tr>
 <tr><td><strong>Focus Target HP</strong></td><td>Shows your focus target's HP as a bar across the selected keys. Same colour states as Target HP (claimed, friendly, idle) with its own palette entries.<br><br><em>Modes: Interpolate, Fade.</em></td></tr>
 <tr><td><strong>Focus Target Castbar</strong></td><td>Shows your focus target's cast progress in real time. Handy for watching a boss's casts while you're targeting adds.<br><br><em>Modes: Interpolate, Fade.</em></td></tr>
+<tr><td><strong>Black</strong></td><td>Holds the selected keys at black (#000000). Useful for masking keys that a lower layer would otherwise light.</td></tr>
 </tbody></table>
 
 ## Effect Layer
